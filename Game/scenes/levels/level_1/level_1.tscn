@@ -1,0 +1,107 @@
+[gd_scene load_steps=11 format=2]
+
+[ext_resource path="res://entities/player/player.tscn" type="PackedScene" id=1]
+[ext_resource path="res://scenes/levels/level_1/assets/level-1.png" type="Texture" id=2]
+[ext_resource path="res://scenes/levels/level_manager.gd" type="Script" id=3]
+[ext_resource path="res://ui/hud/hud.tscn" type="PackedScene" id=4]
+[ext_resource path="res://scenes/levels/repair_station/repaire_station.tscn" type="PackedScene" id=5]
+
+[sub_resource type="RectangleShape2D" id=1]
+extents = Vector2( 96, 10 )
+
+[sub_resource type="RectangleShape2D" id=2]
+extents = Vector2( 84.1802, 10 )
+
+[sub_resource type="RectangleShape2D" id=3]
+extents = Vector2( 180, 10 )
+
+[sub_resource type="RectangleShape2D" id=4]
+extents = Vector2( 96, 10 )
+
+[sub_resource type="RectangleShape2D" id=5]
+extents = Vector2( 96, 10 )
+
+[node name="Level1" type="Node2D"]
+script = ExtResource( 3 )
+
+[node name="HUD" parent="." instance=ExtResource( 4 )]
+
+[node name="TextureRect" type="TextureRect" parent="."]
+margin_right = 1280.0
+margin_bottom = 720.0
+texture = ExtResource( 2 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="RepairStation" parent="." instance=ExtResource( 5 )]
+position = Vector2( 597, 328 )
+
+[node name="Player" parent="." instance=ExtResource( 1 )]
+position = Vector2( 528, 188 )
+gravity = 1000.0
+
+[node name="Ground" type="StaticBody2D" parent="."]
+position = Vector2( 320, 180 )
+collision_layer = 16
+collision_mask = 5
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Ground"]
+position = Vector2( 120, 82 )
+shape = SubResource( 1 )
+one_way_collision = true
+
+[node name="Ground2" type="StaticBody2D" parent="."]
+position = Vector2( 320, 180 )
+collision_layer = 16
+collision_mask = 5
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Ground2"]
+position = Vector2( 515.721, 81.7574 )
+shape = SubResource( 2 )
+one_way_collision = true
+
+[node name="Ground3" type="StaticBody2D" parent="."]
+position = Vector2( 320, 180 )
+collision_layer = 16
+collision_mask = 5
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Ground3"]
+position = Vector2( 276, 178 )
+shape = SubResource( 3 )
+one_way_collision = true
+
+[node name="Ground4" type="StaticBody2D" parent="."]
+position = Vector2( -8, 28 )
+collision_layer = 16
+collision_mask = 5
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Ground4"]
+position = Vector2( 496, 450 )
+shape = SubResource( 4 )
+one_way_collision = true
+
+[node name="Ground5" type="StaticBody2D" parent="."]
+position = Vector2( -8, 28 )
+collision_layer = 16
+collision_mask = 5
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Ground5"]
+position = Vector2( 736, 450 )
+shape = SubResource( 5 )
+one_way_collision = true
+
+[node name="StaticsEnemiesSpawnPoints" type="Node" parent="."]
+
+[node name="Spawn3" type="Position2D" parent="StaticsEnemiesSpawnPoints"]
+position = Vector2( 440, 240 )
+
+[node name="MovingEnemiesSpawnPoints" type="Node" parent="."]
+
+[node name="Enemies" type="Node" parent="."]
+
+[node name="Chrono" type="Timer" parent="."]
+autostart = true
+
+[connection signal="repair" from="RepairStation" to="." method="_on_RepairStation_repair"]
+[connection signal="timeout" from="Chrono" to="." method="_on_Chrono_timeout"]
