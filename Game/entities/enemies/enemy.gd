@@ -14,11 +14,13 @@ var gravity := 2000.0
 var timer: Timer
 var can_attack := false
 var spawn_point_idx : int
+var reward : int
 
 var _velocity := Vector2.ZERO
 
 signal damage_struct
 signal end_spawn
+signal died
 
 func _physics_process(delta: float) -> void:
 	if health <= 0: 
@@ -45,8 +47,6 @@ func get_punched(damage: float, direction: int) -> void:
 
 func die() -> void:
 	dead = true
-	emit_signal("end_spawn", spawn_point_idx)
-	self.queue_free()
 
 func attack() -> void:
 	if aggresive :

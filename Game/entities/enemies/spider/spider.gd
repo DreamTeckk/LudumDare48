@@ -10,13 +10,13 @@ func _physics_process(delta: float) -> void:
 		_velocity.x = lerp(_velocity.x, 0, 0.01)
 
 func _ready() -> void:
-	speed = 200.0
 	damage = 1
 	weight = 10.0
 	attack_speed = 1.0
 	max_health = 10
 	aggresive = false
 	health = max_health
+	reward = 1 * PlayerStats.difficulty
 	set_physics_process(true)
 	setup_attack_timer()
 	
@@ -30,3 +30,11 @@ func _on_AttackTimer_timeout() -> void:
 
 func _on_VisibilityNotifier2D_screen_exited() -> void:
 	.die()
+	die()
+
+func die() -> void:
+	PlayerStats.total_money += reward
+	PlayerStats.money += reward
+	emit_signal("died")
+	emit_signal("end_spawn", spawn_point_idx)
+	self.queue_free()

@@ -37,8 +37,4 @@ shape = SubResource( 1 )
 [node name="Hitbox" type="CollisionShape2D" parent="."]
 shape = SubResource( 2 )
 
-[node name="AttackTimer" type="Timer" parent="."]
-one_shot = true
-
 [connection signal="body_entered" from="Attackbox" to="." method="_on_Attackbox_body_entered"]
-[connection signal="timeout" from="AttackTimer" to="." method="_on_AttackTimer_timeout"]

@@ -36,6 +36,10 @@ config/name="LudumDare48"
 run/main_scene="res://scenes/levels/level_1/level_1.tscn"
 config/icon="res://icon.png"
 
+[autoload]
+
+PlayerStats="*res://globals/player_stats.gd"
+
 [display]
 
 window/size/width=1280

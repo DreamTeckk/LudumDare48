@@ -1,0 +1,1050 @@
+[gd_scene load_steps=2 format=2]
+
+[ext_resource path="res://ui/shop/shop.gd" type="Script" id=1]
+
+[node name="Shop" type="CanvasLayer"]
+script = ExtResource( 1 )
+
+[node name="Control" type="Control" parent="."]
+margin_right = 40.0
+margin_bottom = 40.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Panel" type="PanelContainer" parent="Control"]
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = 236.0
+margin_top = 12.0
+margin_right = 1004.0
+margin_bottom = 564.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="JumpUpgrade" type="Control" parent="Control"]
+margin_left = 263.0
+margin_top = 35.0
+margin_right = 1017.0
+margin_bottom = 120.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="UpgradeSprite" type="ColorRect" parent="Control/JumpUpgrade"]
+margin_left = 33.0
+margin_top = 20.0
+margin_right = 81.0
+margin_bottom = 68.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Label" type="Label" parent="Control/JumpUpgrade"]
+margin_left = 13.0
+margin_top = 74.0
+margin_right = 101.0
+margin_bottom = 88.0
+text = "Jump"
+align = 1
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Levels" type="Control" parent="Control/JumpUpgrade"]
+margin_left = 121.0
+margin_top = 25.0
+margin_right = 633.0
+margin_bottom = 65.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="ColorRect" type="ColorRect" parent="Control/JumpUpgrade/Levels"]
+anchor_top = 0.5
+anchor_bottom = 0.5
+margin_top = -10.0
+margin_right = 16.0
+margin_bottom = 6.0
+color = Color( 0.152941, 0.152941, 0.152941, 1 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="ColorRect2" type="ColorRect" parent="Control/JumpUpgrade/Levels"]
+anchor_top = 0.5
+anchor_bottom = 0.5
+margin_left = 48.0
+margin_top = -10.0
+margin_right = 64.0
+margin_bottom = 6.0
+color = Color( 0.152941, 0.152941, 0.152941, 1 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="ColorRect3" type="ColorRect" parent="Control/JumpUpgrade/Levels"]
+anchor_top = 0.5
+anchor_bottom = 0.5
+margin_left = 96.0
+margin_top = -10.0
+margin_right = 112.0
+margin_bottom = 6.0
+color = Color( 0.152941, 0.152941, 0.152941, 1 )
+
+[node name="ColorRect4" type="ColorRect" parent="Control/JumpUpgrade/Levels"]
+anchor_top = 0.5
+anchor_bottom = 0.5
+margin_left = 144.0
+margin_top = -10.0
+margin_right = 160.0
+margin_bottom = 6.0
+color = Color( 0.152941, 0.152941, 0.152941, 1 )
+
+[node name="ColorRect5" type="ColorRect" parent="Control/JumpUpgrade/Levels"]
+anchor_top = 0.5
+anchor_bottom = 0.5
+margin_left = 192.0
+margin_top = -10.0
+margin_right = 208.0
+margin_bottom = 6.0
+color = Color( 0.152941, 0.152941, 0.152941, 1 )
+
+[node name="ColorRect6" type="ColorRect" parent="Control/JumpUpgrade/Levels"]
+anchor_top = 0.5
+anchor_bottom = 0.5
+margin_left = 240.0
+margin_top = -10.0
+margin_right = 256.0
+margin_bottom = 6.0
+color = Color( 0.152941, 0.152941, 0.152941, 1 )
+
+[node name="ColorRect7" type="ColorRect" parent="Control/JumpUpgrade/Levels"]
+anchor_top = 0.5
+anchor_bottom = 0.5
+margin_left = 288.0
+margin_top = -10.0
+margin_right = 304.0
+margin_bottom = 6.0
+color = Color( 0.152941, 0.152941, 0.152941, 1 )
+
+[node name="ColorRect8" type="ColorRect" parent="Control/JumpUpgrade/Levels"]
+anchor_top = 0.5
+anchor_bottom = 0.5
+margin_left = 336.0
+margin_top = -10.0
+margin_right = 352.0
+margin_bottom = 6.0
+color = Color( 0.152941, 0.152941, 0.152941, 1 )
+
+[node name="ColorRect9" type="ColorRect" parent="Control/JumpUpgrade/Levels"]
+anchor_top = 0.5
+anchor_bottom = 0.5
+margin_left = 384.0
+margin_top = -10.0
+margin_right = 400.0
+margin_bottom = 6.0
+color = Color( 0.152941, 0.152941, 0.152941, 1 )
+
+[node name="ColorRect10" type="ColorRect" parent="Control/JumpUpgrade/Levels"]
+anchor_top = 0.5
+anchor_bottom = 0.5
+margin_left = 432.0
+margin_top = -10.0
+margin_right = 448.0
+margin_bottom = 6.0
+color = Color( 0.152941, 0.152941, 0.152941, 1 )
+
+[node name="JumpUpgradeButton" type="Button" parent="Control/JumpUpgrade"]
+margin_left = 617.0
+margin_top = 21.0
+margin_right = 713.0
+margin_bottom = 61.0
+text = "UPGRADE"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="PriceContainer" type="Control" parent="Control/JumpUpgrade"]
+margin_left = 645.0
+margin_top = 61.0
+margin_right = 685.0
+margin_bottom = 76.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Label" type="Label" parent="Control/JumpUpgrade/PriceContainer"]
+margin_left = 12.0
+margin_top = 9.0
+margin_right = 68.0
+margin_bottom = 23.0
+valign = 1
+
+[node name="BulletVelocityUpgrade" type="Control" parent="Control"]
+margin_left = 263.0
+margin_top = 115.0
+margin_right = 1017.0
+margin_bottom = 192.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="UpgradeSprite" type="ColorRect" parent="Control/BulletVelocityUpgrade"]
+margin_left = 33.0
+margin_top = 21.0
+margin_right = 81.0
+margin_bottom = 69.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Label" type="Label" parent="Control/BulletVelocityUpgrade"]
+margin_left = 16.0
+margin_top = 76.0
+margin_right = 97.0
+margin_bottom = 90.0
+text = "Bullet Speed"
+align = 1
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Levels" type="Control" parent="Control/BulletVelocityUpgrade"]
+margin_left = 121.0
+margin_top = 25.0
+margin_right = 633.0
+margin_bottom = 65.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="ColorRect" type="ColorRect" parent="Control/BulletVelocityUpgrade/Levels"]
+anchor_top = 0.5
+anchor_bottom = 0.5
+margin_top = -10.0
+margin_right = 16.0
+margin_bottom = 6.0
+color = Color( 0.152941, 0.152941, 0.152941, 1 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="ColorRect2" type="ColorRect" parent="Control/BulletVelocityUpgrade/Levels"]
+anchor_top = 0.5
+anchor_bottom = 0.5
+margin_left = 48.0
+margin_top = -10.0
+margin_right = 64.0
+margin_bottom = 6.0
+color = Color( 0.152941, 0.152941, 0.152941, 1 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="ColorRect3" type="ColorRect" parent="Control/BulletVelocityUpgrade/Levels"]
+anchor_top = 0.5
+anchor_bottom = 0.5
+margin_left = 96.0
+margin_top = -10.0
+margin_right = 112.0
+margin_bottom = 6.0
+color = Color( 0.152941, 0.152941, 0.152941, 1 )
+
+[node name="ColorRect4" type="ColorRect" parent="Control/BulletVelocityUpgrade/Levels"]
+anchor_top = 0.5
+anchor_bottom = 0.5
+margin_left = 144.0
+margin_top = -10.0
+margin_right = 160.0
+margin_bottom = 6.0
+color = Color( 0.152941, 0.152941, 0.152941, 1 )
+
+[node name="ColorRect5" type="ColorRect" parent="Control/BulletVelocityUpgrade/Levels"]
+anchor_top = 0.5
+anchor_bottom = 0.5
+margin_left = 192.0
+margin_top = -10.0
+margin_right = 208.0
+margin_bottom = 6.0
+color = Color( 0.152941, 0.152941, 0.152941, 1 )
+
+[node name="ColorRect6" type="ColorRect" parent="Control/BulletVelocityUpgrade/Levels"]
+anchor_top = 0.5
+anchor_bottom = 0.5
+margin_left = 240.0
+margin_top = -10.0
+margin_right = 256.0
+margin_bottom = 6.0
+color = Color( 0.152941, 0.152941, 0.152941, 1 )
+
+[node name="ColorRect7" type="ColorRect" parent="Control/BulletVelocityUpgrade/Levels"]
+anchor_top = 0.5
+anchor_bottom = 0.5
+margin_left = 288.0
+margin_top = -10.0
+margin_right = 304.0
+margin_bottom = 6.0
+color = Color( 0.152941, 0.152941, 0.152941, 1 )
+
+[node name="ColorRect8" type="ColorRect" parent="Control/BulletVelocityUpgrade/Levels"]
+anchor_top = 0.5
+anchor_bottom = 0.5
+margin_left = 336.0
+margin_top = -10.0
+margin_right = 352.0
+margin_bottom = 6.0
+color = Color( 0.152941, 0.152941, 0.152941, 1 )
+
+[node name="ColorRect9" type="ColorRect" parent="Control/BulletVelocityUpgrade/Levels"]
+anchor_top = 0.5
+anchor_bottom = 0.5
+margin_left = 384.0
+margin_top = -10.0
+margin_right = 400.0
+margin_bottom = 6.0
+color = Color( 0.152941, 0.152941, 0.152941, 1 )
+
+[node name="ColorRect10" type="ColorRect" parent="Control/BulletVelocityUpgrade/Levels"]
+anchor_top = 0.5
+anchor_bottom = 0.5
+margin_left = 432.0
+margin_top = -10.0
+margin_right = 448.0
+margin_bottom = 6.0
+color = Color( 0.152941, 0.152941, 0.152941, 1 )
+
+[node name="BulletVelocityUpgradeButton" type="Button" parent="Control/BulletVelocityUpgrade"]
+margin_left = 617.0
+margin_top = 21.0
+margin_right = 713.0
+margin_bottom = 61.0
+text = "UPGRADE"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="PriceContainer" type="Control" parent="Control/BulletVelocityUpgrade"]
+margin_left = 645.0
+margin_top = 61.0
+margin_right = 685.0
+margin_bottom = 76.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Label" type="Label" parent="Control/BulletVelocityUpgrade/PriceContainer"]
+margin_left = 12.0
+margin_top = 9.0
+margin_right = 68.0
+margin_bottom = 23.0
+valign = 1
+
+[node name="ReloadTime" type="Control" parent="Control"]
+margin_left = 263.0
+margin_top = 195.0
+margin_right = 1017.0
+margin_bottom = 280.0
+rect_pivot_offset = Vector2( 473, -59 )
+
+[node name="UpgradeSprite" type="ColorRect" parent="Control/ReloadTime"]
+margin_left = 33.0
+margin_top = 20.0
+margin_right = 81.0
+margin_bottom = 68.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Label" type="Label" parent="Control/ReloadTime"]
+margin_left = 16.0
+margin_top = 75.0
+margin_right = 97.0
+margin_bottom = 89.0
+text = "Reload Time"
+align = 1
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Levels" type="Control" parent="Control/ReloadTime"]
+margin_left = 121.0
+margin_top = 25.0
+margin_right = 633.0
+margin_bottom = 65.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="ColorRect" type="ColorRect" parent="Control/ReloadTime/Levels"]
+anchor_top = 0.5
+anchor_bottom = 0.5
+margin_top = -10.0
+margin_right = 16.0
+margin_bottom = 6.0
+color = Color( 0.152941, 0.152941, 0.152941, 1 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="ColorRect2" type="ColorRect" parent="Control/ReloadTime/Levels"]
+anchor_top = 0.5
+anchor_bottom = 0.5
+margin_left = 48.0
+margin_top = -10.0
+margin_right = 64.0
+margin_bottom = 6.0
+color = Color( 0.152941, 0.152941, 0.152941, 1 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="ColorRect3" type="ColorRect" parent="Control/ReloadTime/Levels"]
+anchor_top = 0.5
+anchor_bottom = 0.5
+margin_left = 96.0
+margin_top = -10.0
+margin_right = 112.0
+margin_bottom = 6.0
+color = Color( 0.152941, 0.152941, 0.152941, 1 )
+
+[node name="ColorRect4" type="ColorRect" parent="Control/ReloadTime/Levels"]
+anchor_top = 0.5
+anchor_bottom = 0.5
+margin_left = 144.0
+margin_top = -10.0
+margin_right = 160.0
+margin_bottom = 6.0
+color = Color( 0.152941, 0.152941, 0.152941, 1 )
+
+[node name="ColorRect5" type="ColorRect" parent="Control/ReloadTime/Levels"]
+anchor_top = 0.5
+anchor_bottom = 0.5
+margin_left = 192.0
+margin_top = -10.0
+margin_right = 208.0
+margin_bottom = 6.0
+color = Color( 0.152941, 0.152941, 0.152941, 1 )
+
+[node name="ColorRect6" type="ColorRect" parent="Control/ReloadTime/Levels"]
+anchor_top = 0.5
+anchor_bottom = 0.5
+margin_left = 240.0
+margin_top = -10.0
+margin_right = 256.0
+margin_bottom = 6.0
+color = Color( 0.152941, 0.152941, 0.152941, 1 )
+
+[node name="ColorRect7" type="ColorRect" parent="Control/ReloadTime/Levels"]
+anchor_top = 0.5
+anchor_bottom = 0.5
+margin_left = 288.0
+margin_top = -10.0
+margin_right = 304.0
+margin_bottom = 6.0
+color = Color( 0.152941, 0.152941, 0.152941, 1 )
+
+[node name="ColorRect8" type="ColorRect" parent="Control/ReloadTime/Levels"]
+anchor_top = 0.5
+anchor_bottom = 0.5
+margin_left = 336.0
+margin_top = -10.0
+margin_right = 352.0
+margin_bottom = 6.0
+color = Color( 0.152941, 0.152941, 0.152941, 1 )
+
+[node name="ColorRect9" type="ColorRect" parent="Control/ReloadTime/Levels"]
+anchor_top = 0.5
+anchor_bottom = 0.5
+margin_left = 384.0
+margin_top = -10.0
+margin_right = 400.0
+margin_bottom = 6.0
+color = Color( 0.152941, 0.152941, 0.152941, 1 )
+
+[node name="ColorRect10" type="ColorRect" parent="Control/ReloadTime/Levels"]
+anchor_top = 0.5
+anchor_bottom = 0.5
+margin_left = 432.0
+margin_top = -10.0
+margin_right = 448.0
+margin_bottom = 6.0
+color = Color( 0.152941, 0.152941, 0.152941, 1 )
+
+[node name="ReloadTimeUpgradeButton" type="Button" parent="Control/ReloadTime"]
+margin_left = 617.0
+margin_top = 21.0
+margin_right = 713.0
+margin_bottom = 61.0
+text = "UPGRADE"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="PriceContainer" type="Control" parent="Control/ReloadTime"]
+margin_left = 645.0
+margin_top = 61.0
+margin_right = 685.0
+margin_bottom = 76.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Label" type="Label" parent="Control/ReloadTime/PriceContainer"]
+margin_left = 12.0
+margin_top = 9.0
+margin_right = 68.0
+margin_bottom = 23.0
+valign = 1
+
+[node name="Caliber" type="Control" parent="Control"]
+margin_left = 264.0
+margin_top = 278.0
+margin_right = 1018.0
+margin_bottom = 360.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="UpgradeSprite" type="ColorRect" parent="Control/Caliber"]
+margin_left = 33.0
+margin_top = 20.0
+margin_right = 81.0
+margin_bottom = 68.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Label" type="Label" parent="Control/Caliber"]
+margin_left = 16.0
+margin_top = 75.0
+margin_right = 97.0
+margin_bottom = 89.0
+text = "Caliber"
+align = 1
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Levels" type="Control" parent="Control/Caliber"]
+margin_left = 121.0
+margin_top = 25.0
+margin_right = 633.0
+margin_bottom = 65.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="ColorRect" type="ColorRect" parent="Control/Caliber/Levels"]
+anchor_top = 0.5
+anchor_bottom = 0.5
+margin_top = -10.0
+margin_right = 16.0
+margin_bottom = 6.0
+color = Color( 0.152941, 0.152941, 0.152941, 1 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="ColorRect2" type="ColorRect" parent="Control/Caliber/Levels"]
+anchor_top = 0.5
+anchor_bottom = 0.5
+margin_left = 48.0
+margin_top = -10.0
+margin_right = 64.0
+margin_bottom = 6.0
+color = Color( 0.152941, 0.152941, 0.152941, 1 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="ColorRect3" type="ColorRect" parent="Control/Caliber/Levels"]
+anchor_top = 0.5
+anchor_bottom = 0.5
+margin_left = 96.0
+margin_top = -10.0
+margin_right = 112.0
+margin_bottom = 6.0
+color = Color( 0.152941, 0.152941, 0.152941, 1 )
+
+[node name="ColorRect4" type="ColorRect" parent="Control/Caliber/Levels"]
+anchor_top = 0.5
+anchor_bottom = 0.5
+margin_left = 144.0
+margin_top = -10.0
+margin_right = 160.0
+margin_bottom = 6.0
+color = Color( 0.152941, 0.152941, 0.152941, 1 )
+
+[node name="ColorRect5" type="ColorRect" parent="Control/Caliber/Levels"]
+anchor_top = 0.5
+anchor_bottom = 0.5
+margin_left = 192.0
+margin_top = -10.0
+margin_right = 208.0
+margin_bottom = 6.0
+color = Color( 0.152941, 0.152941, 0.152941, 1 )
+
+[node name="ColorRect6" type="ColorRect" parent="Control/Caliber/Levels"]
+anchor_top = 0.5
+anchor_bottom = 0.5
+margin_left = 240.0
+margin_top = -10.0
+margin_right = 256.0
+margin_bottom = 6.0
+color = Color( 0.152941, 0.152941, 0.152941, 1 )
+
+[node name="ColorRect7" type="ColorRect" parent="Control/Caliber/Levels"]
+anchor_top = 0.5
+anchor_bottom = 0.5
+margin_left = 288.0
+margin_top = -10.0
+margin_right = 304.0
+margin_bottom = 6.0
+color = Color( 0.152941, 0.152941, 0.152941, 1 )
+
+[node name="ColorRect8" type="ColorRect" parent="Control/Caliber/Levels"]
+anchor_top = 0.5
+anchor_bottom = 0.5
+margin_left = 336.0
+margin_top = -10.0
+margin_right = 352.0
+margin_bottom = 6.0
+color = Color( 0.152941, 0.152941, 0.152941, 1 )
+
+[node name="ColorRect9" type="ColorRect" parent="Control/Caliber/Levels"]
+anchor_top = 0.5
+anchor_bottom = 0.5
+margin_left = 384.0
+margin_top = -10.0
+margin_right = 400.0
+margin_bottom = 6.0
+color = Color( 0.152941, 0.152941, 0.152941, 1 )
+
+[node name="ColorRect10" type="ColorRect" parent="Control/Caliber/Levels"]
+anchor_top = 0.5
+anchor_bottom = 0.5
+margin_left = 432.0
+margin_top = -10.0
+margin_right = 448.0
+margin_bottom = 6.0
+color = Color( 0.152941, 0.152941, 0.152941, 1 )
+
+[node name="CaliberUpgradeButton" type="Button" parent="Control/Caliber"]
+margin_left = 617.0
+margin_top = 21.0
+margin_right = 713.0
+margin_bottom = 61.0
+text = "UPGRADE"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="PriceContainer" type="Control" parent="Control/Caliber"]
+margin_left = 645.0
+margin_top = 66.0
+margin_right = 685.0
+margin_bottom = 76.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Label" type="Label" parent="Control/Caliber/PriceContainer"]
+margin_left = 12.0
+margin_top = 3.0
+margin_right = 68.0
+margin_bottom = 17.0
+valign = 1
+
+[node name="AntiKBUpgrade" type="Control" parent="Control"]
+margin_left = 263.0
+margin_top = 362.0
+margin_right = 1017.0
+margin_bottom = 440.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="UpgradeSprite" type="ColorRect" parent="Control/AntiKBUpgrade"]
+margin_left = 33.0
+margin_top = 20.0
+margin_right = 81.0
+margin_bottom = 68.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Label" type="Label" parent="Control/AntiKBUpgrade"]
+margin_left = 8.0
+margin_top = 75.0
+margin_right = 105.0
+margin_bottom = 89.0
+text = "Anti Knockback"
+align = 1
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Levels" type="Control" parent="Control/AntiKBUpgrade"]
+margin_left = 121.0
+margin_top = 25.0
+margin_right = 633.0
+margin_bottom = 65.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="ColorRect" type="ColorRect" parent="Control/AntiKBUpgrade/Levels"]
+anchor_top = 0.5
+anchor_bottom = 0.5
+margin_top = -10.0
+margin_right = 16.0
+margin_bottom = 6.0
+color = Color( 0.152941, 0.152941, 0.152941, 1 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="ColorRect2" type="ColorRect" parent="Control/AntiKBUpgrade/Levels"]
+anchor_top = 0.5
+anchor_bottom = 0.5
+margin_left = 48.0
+margin_top = -10.0
+margin_right = 64.0
+margin_bottom = 6.0
+color = Color( 0.152941, 0.152941, 0.152941, 1 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="ColorRect3" type="ColorRect" parent="Control/AntiKBUpgrade/Levels"]
+anchor_top = 0.5
+anchor_bottom = 0.5
+margin_left = 96.0
+margin_top = -10.0
+margin_right = 112.0
+margin_bottom = 6.0
+color = Color( 0.152941, 0.152941, 0.152941, 1 )
+
+[node name="ColorRect4" type="ColorRect" parent="Control/AntiKBUpgrade/Levels"]
+anchor_top = 0.5
+anchor_bottom = 0.5
+margin_left = 144.0
+margin_top = -10.0
+margin_right = 160.0
+margin_bottom = 6.0
+color = Color( 0.152941, 0.152941, 0.152941, 1 )
+
+[node name="ColorRect5" type="ColorRect" parent="Control/AntiKBUpgrade/Levels"]
+anchor_top = 0.5
+anchor_bottom = 0.5
+margin_left = 192.0
+margin_top = -10.0
+margin_right = 208.0
+margin_bottom = 6.0
+color = Color( 0.152941, 0.152941, 0.152941, 1 )
+
+[node name="ColorRect6" type="ColorRect" parent="Control/AntiKBUpgrade/Levels"]
+anchor_top = 0.5
+anchor_bottom = 0.5
+margin_left = 240.0
+margin_top = -10.0
+margin_right = 256.0
+margin_bottom = 6.0
+color = Color( 0.152941, 0.152941, 0.152941, 1 )
+
+[node name="ColorRect7" type="ColorRect" parent="Control/AntiKBUpgrade/Levels"]
+anchor_top = 0.5
+anchor_bottom = 0.5
+margin_left = 288.0
+margin_top = -10.0
+margin_right = 304.0
+margin_bottom = 6.0
+color = Color( 0.152941, 0.152941, 0.152941, 1 )
+
+[node name="ColorRect8" type="ColorRect" parent="Control/AntiKBUpgrade/Levels"]
+anchor_top = 0.5
+anchor_bottom = 0.5
+margin_left = 336.0
+margin_top = -10.0
+margin_right = 352.0
+margin_bottom = 6.0
+color = Color( 0.152941, 0.152941, 0.152941, 1 )
+
+[node name="ColorRect9" type="ColorRect" parent="Control/AntiKBUpgrade/Levels"]
+anchor_top = 0.5
+anchor_bottom = 0.5
+margin_left = 384.0
+margin_top = -10.0
+margin_right = 400.0
+margin_bottom = 6.0
+color = Color( 0.152941, 0.152941, 0.152941, 1 )
+
+[node name="ColorRect10" type="ColorRect" parent="Control/AntiKBUpgrade/Levels"]
+anchor_top = 0.5
+anchor_bottom = 0.5
+margin_left = 432.0
+margin_top = -10.0
+margin_right = 448.0
+margin_bottom = 6.0
+color = Color( 0.152941, 0.152941, 0.152941, 1 )
+
+[node name="AntiKBUpgradeButton" type="Button" parent="Control/AntiKBUpgrade"]
+margin_left = 617.0
+margin_top = 21.0
+margin_right = 713.0
+margin_bottom = 61.0
+text = "UPGRADE"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="PriceContainer" type="Control" parent="Control/AntiKBUpgrade"]
+margin_left = 645.0
+margin_top = 62.0
+margin_right = 685.0
+margin_bottom = 76.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Label" type="Label" parent="Control/AntiKBUpgrade/PriceContainer"]
+margin_left = 12.0
+margin_top = 9.0
+margin_right = 68.0
+margin_bottom = 23.0
+valign = 1
+
+[node name="RepairStationUpgrade" type="Control" parent="Control"]
+margin_left = 264.0
+margin_top = 446.0
+margin_right = 1018.0
+margin_bottom = 528.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="UpgradeSprite" type="ColorRect" parent="Control/RepairStationUpgrade"]
+margin_left = 33.0
+margin_top = 20.0
+margin_right = 81.0
+margin_bottom = 68.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Label" type="Label" parent="Control/RepairStationUpgrade"]
+margin_left = 8.0
+margin_top = 75.0
+margin_right = 105.0
+margin_bottom = 89.0
+text = "Repair Station"
+align = 1
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Levels" type="Control" parent="Control/RepairStationUpgrade"]
+margin_left = 121.0
+margin_top = 25.0
+margin_right = 633.0
+margin_bottom = 65.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="ColorRect" type="ColorRect" parent="Control/RepairStationUpgrade/Levels"]
+anchor_top = 0.5
+anchor_bottom = 0.5
+margin_top = -10.0
+margin_right = 16.0
+margin_bottom = 6.0
+color = Color( 0.152941, 0.152941, 0.152941, 1 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="ColorRect2" type="ColorRect" parent="Control/RepairStationUpgrade/Levels"]
+anchor_top = 0.5
+anchor_bottom = 0.5
+margin_left = 48.0
+margin_top = -10.0
+margin_right = 64.0
+margin_bottom = 6.0
+color = Color( 0.152941, 0.152941, 0.152941, 1 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="ColorRect3" type="ColorRect" parent="Control/RepairStationUpgrade/Levels"]
+anchor_top = 0.5
+anchor_bottom = 0.5
+margin_left = 96.0
+margin_top = -10.0
+margin_right = 112.0
+margin_bottom = 6.0
+color = Color( 0.152941, 0.152941, 0.152941, 1 )
+
+[node name="ColorRect4" type="ColorRect" parent="Control/RepairStationUpgrade/Levels"]
+anchor_top = 0.5
+anchor_bottom = 0.5
+margin_left = 144.0
+margin_top = -10.0
+margin_right = 160.0
+margin_bottom = 6.0
+color = Color( 0.152941, 0.152941, 0.152941, 1 )
+
+[node name="ColorRect5" type="ColorRect" parent="Control/RepairStationUpgrade/Levels"]
+anchor_top = 0.5
+anchor_bottom = 0.5
+margin_left = 192.0
+margin_top = -10.0
+margin_right = 208.0
+margin_bottom = 6.0
+color = Color( 0.152941, 0.152941, 0.152941, 1 )
+
+[node name="ColorRect6" type="ColorRect" parent="Control/RepairStationUpgrade/Levels"]
+anchor_top = 0.5
+anchor_bottom = 0.5
+margin_left = 240.0
+margin_top = -10.0
+margin_right = 256.0
+margin_bottom = 6.0
+color = Color( 0.152941, 0.152941, 0.152941, 1 )
+
+[node name="ColorRect7" type="ColorRect" parent="Control/RepairStationUpgrade/Levels"]
+anchor_top = 0.5
+anchor_bottom = 0.5
+margin_left = 288.0
+margin_top = -10.0
+margin_right = 304.0
+margin_bottom = 6.0
+color = Color( 0.152941, 0.152941, 0.152941, 1 )
+
+[node name="ColorRect8" type="ColorRect" parent="Control/RepairStationUpgrade/Levels"]
+anchor_top = 0.5
+anchor_bottom = 0.5
+margin_left = 336.0
+margin_top = -10.0
+margin_right = 352.0
+margin_bottom = 6.0
+color = Color( 0.152941, 0.152941, 0.152941, 1 )
+
+[node name="ColorRect9" type="ColorRect" parent="Control/RepairStationUpgrade/Levels"]
+anchor_top = 0.5
+anchor_bottom = 0.5
+margin_left = 384.0
+margin_top = -10.0
+margin_right = 400.0
+margin_bottom = 6.0
+color = Color( 0.152941, 0.152941, 0.152941, 1 )
+
+[node name="ColorRect10" type="ColorRect" parent="Control/RepairStationUpgrade/Levels"]
+anchor_top = 0.5
+anchor_bottom = 0.5
+margin_left = 432.0
+margin_top = -10.0
+margin_right = 448.0
+margin_bottom = 6.0
+color = Color( 0.152941, 0.152941, 0.152941, 1 )
+
+[node name="RepairStationUpgradeButton" type="Button" parent="Control/RepairStationUpgrade"]
+margin_left = 617.0
+margin_top = 21.0
+margin_right = 713.0
+margin_bottom = 61.0
+text = "UPGRADE"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="PriceContainer" type="Control" parent="Control/RepairStationUpgrade"]
+margin_left = 645.0
+margin_top = 66.0
+margin_right = 685.0
+margin_bottom = 76.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Label" type="Label" parent="Control/RepairStationUpgrade/PriceContainer"]
+margin_left = 12.0
+margin_top = 3.0
+margin_right = 68.0
+margin_bottom = 17.0
+valign = 1
+
+[node name="Popup" type="Control" parent="Control"]
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+margin_left = 364.0
+margin_top = 624.0
+margin_right = 876.0
+margin_bottom = 664.0
+
+[node name="Panel" type="Panel" parent="Control/Popup"]
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = -256.0
+margin_top = -60.0
+margin_right = 256.0
+margin_bottom = 20.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Label" type="Label" parent="Control/Popup"]
+margin_left = 7.0
+margin_top = -32.0
+margin_right = 504.0
+margin_bottom = 32.0
+custom_constants/line_spacing = 2
+align = 1
+valign = 1
+autowrap = true
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Node" type="Node" parent="Control"]
+
+[node name="ContinueButton" type="Button" parent="Control"]
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = 841.0
+margin_top = 513.0
+margin_right = 986.0
+margin_bottom = 549.0
+text = "Go Deeper"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[connection signal="mouse_entered" from="Control/JumpUpgrade/JumpUpgradeButton" to="." method="_on_JumpUpgradeButton_mouse_entered"]
+[connection signal="mouse_exited" from="Control/JumpUpgrade/JumpUpgradeButton" to="." method="_on_JumpUpgradeButton_mouse_exited"]
+[connection signal="pressed" from="Control/JumpUpgrade/JumpUpgradeButton" to="." method="_on_JumpUpgradeButton_pressed"]
+[connection signal="mouse_entered" from="Control/BulletVelocityUpgrade/BulletVelocityUpgradeButton" to="." method="_on_BulletVelocityUpgradeButton_mouse_entered"]
+[connection signal="mouse_exited" from="Control/BulletVelocityUpgrade/BulletVelocityUpgradeButton" to="." method="_on_BulletVelocityUpgradeButton_mouse_exited"]
+[connection signal="pressed" from="Control/BulletVelocityUpgrade/BulletVelocityUpgradeButton" to="." method="_on_BulletVelocityUpgradeButton_pressed"]
+[connection signal="mouse_entered" from="Control/ReloadTime/ReloadTimeUpgradeButton" to="." method="_on_ReloadTimeUpgradeButton_mouse_entered"]
+[connection signal="mouse_exited" from="Control/ReloadTime/ReloadTimeUpgradeButton" to="." method="_on_ReloadTimeUpgradeButton_mouse_exited"]
+[connection signal="pressed" from="Control/ReloadTime/ReloadTimeUpgradeButton" to="." method="_on_ReloadTimeUpgradeButton_pressed"]
+[connection signal="mouse_entered" from="Control/Caliber/CaliberUpgradeButton" to="." method="_on_CaliberUpgradeButton_mouse_entered"]
+[connection signal="mouse_exited" from="Control/Caliber/CaliberUpgradeButton" to="." method="_on_CaliberUpgradeButton_mouse_exited"]
+[connection signal="pressed" from="Control/Caliber/CaliberUpgradeButton" to="." method="_on_CaliberUpgradeButton_pressed"]
+[connection signal="mouse_entered" from="Control/AntiKBUpgrade/AntiKBUpgradeButton" to="." method="_on_AntiKBUpgrade_mouse_entered"]
+[connection signal="mouse_exited" from="Control/AntiKBUpgrade/AntiKBUpgradeButton" to="." method="_on_AntiKBUpgrade_mouse_exited"]
+[connection signal="pressed" from="Control/AntiKBUpgrade/AntiKBUpgradeButton" to="." method="_on_AntiKBUpgrade_pressed"]
+[connection signal="mouse_entered" from="Control/RepairStationUpgrade/RepairStationUpgradeButton" to="." method="_on_RepairStationUpgradeButton_mouse_entered"]
+[connection signal="mouse_exited" from="Control/RepairStationUpgrade/RepairStationUpgradeButton" to="." method="_on_RepairStationUpgradeButton_mouse_exited"]
+[connection signal="pressed" from="Control/RepairStationUpgrade/RepairStationUpgradeButton" to="." method="_on_RepairStationUpgradeButton_pressed"]
+[connection signal="pressed" from="Control/ContinueButton" to="." method="_on_ContinueButton_pressed"]

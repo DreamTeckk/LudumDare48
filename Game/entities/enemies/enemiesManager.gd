@@ -7,15 +7,38 @@ var movings_spawn_points: Node
 var enemies_node: Node
 # Spawn points where a static enemy (e.g.: Spider) is alive
 var statics_spawn_in_use : Array
-var spawn_in_use : Array
+var moving_spawn_in_use : Array
 var Spider_scene
 var Bat_scene
 var player: KinematicBody2D
 
-signal damage_struct
-signal spawn_enemy
+var spawn_timer : Timer
 
-func _init(statics_spawn_points: Node, movings_spawn_point: Node ,enemies_node: Node, player: KinematicBody2D) -> void:
+var enemies_spawned := []
+
+signal damage_struct
+signal spawn_all_enemies
+signal enemy_died
+
+const EnemyDict = {
+	"Spider" : {
+		"cts": {
+			"min_idx": 0,
+			"max_idx": 65,
+		},
+		"name": "spider"
+	},
+	"Bat": {
+		"cts": {
+			"min_idx": 66,
+			"max_idx": 99,
+		},
+		"name": "bat"
+	}
+}
+
+func _init(statics_spawn_points: Node, movings_spawn_points: Node ,enemies_node: Node, player: KinematicBody2D) -> void:
+	
 	Spider_scene = load("res://entities/enemies/spider/spider.tscn")
 	Bat_scene = load("res://entities/enemies/bat/bat.tscn")
 	self.statics_spawn_points = statics_spawn_points
@@ -24,7 +47,7 @@ func _init(statics_spawn_points: Node, movings_spawn_point: Node ,enemies_node: 
 	self.player = player
 	
 
-func spawn_enemies(difficulty: int = 0) -> void:
+func spawn_enemies(layer: int, difficulty: int, max_enemies: int) -> void:
 	randomize()
 	
 	# How waves works :
@@ -38,29 +61,87 @@ func spawn_enemies(difficulty: int = 0) -> void:
 	# The more we go down in layers, the stronger and te more numerous are
 	# the enemies.
 	
-	if randi() % 1 < difficulty and statics_spawn_points.get_children().size() > statics_spawn_in_use.size():
-		var rand_sp = null
-		while statics_spawn_in_use.has(rand_sp) or rand_sp == null:
-			rand_sp = randi() % statics_spawn_points.get_children().size()
-			
-		statics_spawn_in_use.append(rand_sp)
+	# Spiders: layer >= 0 (at least 25% of ennemies are spiders); 66% c.t.s
+	# Bats: layer >= 5 (?); 33% c.t.s
+	# ???
+	
+	if enemies_spawned.size() >= max_enemies:
+		emit_signal("spawn_all_enemies")
+		return
 		
-		var new_enemy : Enemy = Spider_scene.instance()
+	var spawnables = [EnemyDict.Spider] 
+	
+	if layer >= 5:
+		spawnables.append(EnemyDict.Bat)
 		
-		new_enemy.spawn_point_idx = rand_sp
+	var rand_idx = randi() % spawnables[spawnables.size() - 1].cts.max_idx + 1
+	
+	var enemy_to_spawn := ""
+	# Check if there are no more space for spider 25% min. spawn rate after the iteration
+	if (enemies_spawned.size() - enemies_spawned.count("spider")) / max_enemies > 0.75:
+		spawn_spider()
+	else: 
+		for enemy in spawnables:
+			if rand_idx >= enemy.cts.min_idx and rand_idx <= enemy.cts.max_idx:
+				enemy_to_spawn = enemy.name
+				continue
+				
+		match enemy_to_spawn:
+			"spider": 
+				spawn_spider()
+				enemies_spawned.append("spider")
+			"bat":
+				spawn_bat()
+				enemies_spawned.append("bat")
 		
-		new_enemy.connect("damage_struct", self, "_on_Enemy_Damage_Struct") 
-		new_enemy.connect("end_spawn", self, "_on_Enemy_End_Spawn") 
-#		new_enemy.set_target(player)
+	
+func spawn_spider() -> void:
+	var rand_sp = null
+	while statics_spawn_in_use.has(rand_sp) or rand_sp == null:
+		rand_sp = randi() % statics_spawn_points.get_children().size()
 		
-		enemies_node.add_child(new_enemy)
+	statics_spawn_in_use.append(rand_sp)
+	
+	var new_enemy : Enemy = Spider_scene.instance()
+	
+	new_enemy.spawn_point_idx = rand_sp
+	
+	new_enemy.connect("damage_struct", self, "_on_Enemy_Damage_Struct") 
+	new_enemy.connect("end_spawn", self, "_on_Enemy_End_Spawn") 
+	new_enemy.connect("died", self, "_on_Enemy_Died") 
+	
+	enemies_node.add_child(new_enemy)
+	
+	new_enemy.global_position = statics_spawn_points.get_child(rand_sp).global_position
+	
+func spawn_bat() -> void:
+	var rand_sp = null
+	while moving_spawn_in_use.has(rand_sp) or rand_sp == null:
+		rand_sp = randi() % movings_spawn_points.get_children().size()
 		
-		new_enemy.global_position = statics_spawn_points.get_child(rand_sp).global_position
-		
+	moving_spawn_in_use.append(rand_sp)
+	
+	var new_enemy : Enemy = Bat_scene.instance()
+	
+	new_enemy.spawn_point_idx = rand_sp
+	
+	new_enemy.connect("damage_struct", self, "_on_Enemy_Damage_Struct") 
+	new_enemy.connect("end_spawn", self, "_on_Enemy_End_Spawn") 
+	new_enemy.connect("died", self, "_on_Enemy_Died") 
+	
+	new_enemy.set_target(player)
+	
+	enemies_node.add_child(new_enemy)
+	
+	new_enemy.global_position = movings_spawn_points.get_child(rand_sp).global_position
 
-func _on_Enemy_Damage_Struct(damage: int) -> void:
-	emit_signal("damage_struct", damage)
 
 func _on_Enemy_End_Spawn(statics_spawn_point_idx: int) -> void:
 	if statics_spawn_in_use.has(statics_spawn_point_idx):
 		statics_spawn_in_use.remove(statics_spawn_in_use.find(statics_spawn_point_idx))
+		
+func _on_Enemy_Damage_Struct(damage: int) -> void:
+	emit_signal("damage_struct", damage)
+
+func _on_Enemy_Died() -> void:
+	emit_signal("enemy_died")

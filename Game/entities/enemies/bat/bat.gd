@@ -10,6 +10,7 @@ func _ready() -> void:
 	max_health = 10
 	aggresive = true
 	health = max_health
+	reward = 3 * PlayerStats.difficulty
 	set_physics_process(true)
 	setup_attack_timer()
 
@@ -33,6 +34,7 @@ func move() -> void:
 		_velocity =  lerp(_velocity,  Vector2(-speed, 0).rotated(self.global_rotation), 0.05)
 
 func _on_AttackTimer_timeout() -> void:
+	emit_signal("end_spawn", spawn_point_idx)
 	can_attack = true
 
 func _on_Attackbox_body_entered(body: Node) -> void:
@@ -41,4 +43,12 @@ func _on_Attackbox_body_entered(body: Node) -> void:
 			var p : Player = body
 			can_attack = false
 			timer.start()
-			p.take_damage(damage)
+			var direction = Vector2.ONE
+			var angle = p.global_position.angle_to_point(self.global_position)
+			direction = Vector2.ONE.rotated(angle)
+			p.take_damage(direction, 500)
+
+func die() -> void:
+	PlayerStats.total_money += reward
+	PlayerStats.money += reward
+	self.queue_free()

@@ -5,7 +5,7 @@
 [sub_resource type="RectangleShape2D" id=1]
 extents = Vector2( 7.9834, 8.03409 )
 
-[sub_resource type="CircleShape2D" id=4]
+[sub_resource type="CircleShape2D" id=2]
 radius = 56.0
 
 [node name="Player" type="KinematicBody2D" groups=[
@@ -36,7 +36,7 @@ shape = SubResource( 1 )
 collision_mask = 12
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="PunchArea"]
-shape = SubResource( 4 )
+shape = SubResource( 2 )
 
 [connection signal="body_entered" from="PunchArea" to="." method="_on_PunchArea_body_entered"]
 [connection signal="body_exited" from="PunchArea" to="." method="_on_PunchArea_body_exited"]
