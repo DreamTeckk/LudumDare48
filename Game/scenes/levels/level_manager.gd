@@ -16,7 +16,7 @@ var layer := 0
 # Difficulty is used to defines enemies level
 var difficulty := 0
 
-var enemies_to_spawn := 4
+var enemies_to_spawn := 5
 var enemies_kiled := 0
 
 var all_enemies_spawned := false
@@ -57,6 +57,7 @@ func start_new_layer() -> void:
 	PlayerStats.layers = layer
 	
 	spawn_timer.start()
+#	$Shop/Control.hide()
 
 func start_anims() -> void:
 	$Scenery/DrillAnimation.play("Drill")

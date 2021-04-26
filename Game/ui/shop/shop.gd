@@ -25,7 +25,25 @@ var UpgradeDict := {
 		"level" : 0,
 		"max_level" : 10,
 		"price" : 100.0,
-		"description" : "Your bullet are bigger, stronger, but slower."
+		"description" : "Your bullets are bigger, but slower."
+	},
+	"breath_power": {
+		"level" : 0,
+		"max_level" : 10,
+		"price" : 100.0,
+		"description" : "Increase the knockback power of your bullets."
+	},
+	"damages": {
+		"level" : 0,
+		"max_level" : 10,
+		"price" : 100.0,
+		"description" : "Increase damages of your bullets."
+	},
+	"structur_health": {
+		"level" : 0,
+		"max_level" : 10,
+		"price" : 100.0,
+		"description" : "Increase the Drill's maximum health."
 	},
 	"anti_knockback": {
 		"level" : 0,
@@ -50,6 +68,9 @@ func _ready() -> void:
 	$Control/Caliber/PriceContainer/Label.text = str(UpgradeDict.get('caliber').price)
 	$Control/AntiKBUpgrade/PriceContainer/Label.text = str(UpgradeDict.get('anti_knockback').price)
 	$Control/RepairStationUpgrade/PriceContainer/Label.text = str(UpgradeDict.get('repaire_station').price)
+	$Control/StructureHealthUpgrade/PriceContainer/Label.text = str(UpgradeDict.get('structur_health').price)
+	$Control/DamageUpgrade/PriceContainer/Label.text = str(UpgradeDict.get('damages').price)
+	$Control/KBUpgrade/PriceContainer/Label.text = str(UpgradeDict.get('breath_power').price)
 
 	update_shop()
 
@@ -227,6 +248,74 @@ func _on_RepairStationUpgradeButton_mouse_exited() -> void:
 	if !$Control/RepairStationUpgrade/RepairStationUpgradeButton.get_global_rect().has_point($Control/RepairStationUpgrade/RepairStationUpgradeButton.get_global_mouse_position()):
 		$Control/Popup.hide()
 
+
+# STRUCTURE HEALTH
+##########################
+func _on_StructureHealthUpgradeButton_pressed() -> void:
+	if PlayerStats.structure_health_level < UpgradeDict.get('structur_health').max_level:
+		if PlayerStats.money >= UpgradeDict.get('structur_health').price:
+			PlayerStats.structure_health_level += 1
+			PlayerStats.money -= UpgradeDict.get('structur_health').price
+			UpgradeDict.get('structur_health').price = ceil(UpgradeDict.get('structur_health').price * (1.0 + float(PlayerStats.structure_health_level) / 10))
+			$Control/StructureHealthUpgrade/PriceContainer/Label.text = str(UpgradeDict.get('structur_health').price)
+			update_shop()
+			for level in range(PlayerStats.structure_health_level):
+				$Control/StructureHealthUpgrade/Levels.get_child(level).color = BUY_COLOR
+
+
+func _on_StructureHealthUpgradeButton_mouse_entered() -> void:
+	show_upgrade_info(UpgradeDict.get('structur_health').description)
+
+
+func _on_StructureHealthUpgradeButton_mouse_exited() -> void:
+	if !$Control/StructureHealthUpgrade/StructureHealthUpgradeButton.get_global_rect().has_point($Control/StructureHealthUpgrade/StructureHealthUpgradeButton.get_global_mouse_position()):
+		$Control/Popup.hide()
+
+
+# DAMAGE
+##########################
+func _on_DamageUpgradeButton_pressed() -> void:
+	if PlayerStats.damage_level < UpgradeDict.get('damages').max_level:
+		if PlayerStats.money >= UpgradeDict.get('damages').price:
+			PlayerStats.damage_level += 1
+			PlayerStats.money -= UpgradeDict.get('damages').price
+			UpgradeDict.get('damages').price = ceil(UpgradeDict.get('damages').price * (1.0 + float(PlayerStats.damage_level) / 10))
+			$Control/DamageUpgrade/PriceContainer/Label.text = str(UpgradeDict.get('damages').price)
+			update_shop()
+			for level in range(PlayerStats.damage_level):
+				$Control/DamageUpgrade/Levels.get_child(level).color = BUY_COLOR
+
+
+func _on_DamageUpgradeButton_mouse_entered() -> void:
+	show_upgrade_info(UpgradeDict.get('damages').description)
+
+
+func _on_DamageUpgradeButton_mouse_exited() -> void:
+	if !$Control/DamageUpgrade/DamageUpgradeButton.get_global_rect().has_point($Control/DamageUpgrade/DamageUpgradeButton.get_global_mouse_position()):
+		$Control/Popup.hide()
+
+# KNOCKBACK
+##########################
+func _on_KBUpgradeButton_pressed() -> void:
+	if PlayerStats.knockback_level < UpgradeDict.get('breath_power').max_level:
+		if PlayerStats.money >= UpgradeDict.get('breath_power').price:
+			PlayerStats.damage_level += 1
+			PlayerStats.money -= UpgradeDict.get('breath_power').price
+			UpgradeDict.get('breath_power').price = ceil(UpgradeDict.get('breath_power').price * (1.0 + float(PlayerStats.knockback_level) / 10))
+			$Control/KBUpgrade/PriceContainer/Label.text = str(UpgradeDict.get('breath_power').price)
+			update_shop()
+			for level in range(PlayerStats.knockback_level):
+				$Control/KBUpgrade/Levels.get_child(level).color = BUY_COLOR
+
+
+func _on_KBUpgradeButton_mouse_entered() -> void:
+	show_upgrade_info(UpgradeDict.get('breath_power').description)
+
+
+func _on_KBUpgradeButton_mouse_exited() -> void:
+	if !$Control/KBUpgrade/KBUpgradeButton.get_global_rect().has_point($Control/KBUpgrade/KBUpgradeButton.get_global_mouse_position()):
+		$Control/Popup.hide()
+
 func show_upgrade_info(text: String) -> void:
 	$Control/Popup/Label.text = text
 	$Control/Popup.show() 
@@ -234,3 +323,4 @@ func show_upgrade_info(text: String) -> void:
 
 func _on_ContinueButton_pressed() -> void:
 	emit_signal("leave_shop")
+

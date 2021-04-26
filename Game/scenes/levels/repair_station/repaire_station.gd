@@ -1,7 +1,8 @@
 extends Node2D
 
 var activable := false
-var level := 1
+
+const HEALTH_REPAIR_BASE := 1
 
 signal repair
 
@@ -21,15 +22,15 @@ func _on_ActivationArea_body_exited(body: Node) -> void:
 		
 
 func _on_Player_Repairs() -> void:
-	print_debug("player repairs")
 	activable = true
-	$RepairTimer.start()
+	if $RepairTimer.is_stopped():
+		$RepairTimer.start()
 
 func _on_Player_Stop_Repairs() -> void:
-	print_debug("player stop repairs")
 	activable = false
 	$RepairTimer.stop()
 
 func _on_RepairTimer_timeout() -> void:
 	if activable:
-		emit_signal("repair", level)
+		print_debug("player repairs")
+		emit_signal("repair", HEALTH_REPAIR_BASE * (PlayerStats.repair_station_level + 1))

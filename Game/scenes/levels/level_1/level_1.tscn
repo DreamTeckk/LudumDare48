@@ -9,7 +9,7 @@
 [ext_resource path="res://assets/scenery/tank_caterpilar_SpriteSheet.png" type="Texture" id=7]
 [ext_resource path="res://ui/shop/shop.tscn" type="PackedScene" id=8]
 
-[sub_resource type="TileSet" id=6]
+[sub_resource type="TileSet" id=1]
 0/name = "tileset.png 0"
 0/texture = ExtResource( 2 )
 0/tex_offset = Vector2( 0, 0 )
@@ -25,7 +25,7 @@
 0/shapes = [  ]
 0/z_index = 0
 
-[sub_resource type="Animation" id=7]
+[sub_resource type="Animation" id=2]
 resource_name = "Drill"
 length = 0.35
 loop = true
@@ -42,7 +42,7 @@ tracks/0/keys = {
 "values": [ 1, 2, 3, 4 ]
 }
 
-[sub_resource type="Animation" id=8]
+[sub_resource type="Animation" id=3]
 resource_name = "Run"
 length = 0.5
 loop = true
@@ -59,7 +59,7 @@ tracks/0/keys = {
 "values": [ 0, 1, 2, 3, 4 ]
 }
 
-[sub_resource type="TileSet" id=9]
+[sub_resource type="TileSet" id=4]
 0/name = "tileset.png 0"
 0/texture = ExtResource( 2 )
 0/tex_offset = Vector2( 0, 0 )
@@ -101,35 +101,35 @@ tracks/0/keys = {
 [sub_resource type="RectangleShape2D" id=5]
 extents = Vector2( 144, 10 )
 
-[sub_resource type="RectangleShape2D" id=10]
+[sub_resource type="RectangleShape2D" id=6]
 extents = Vector2( 144, 10 )
 
-[sub_resource type="RectangleShape2D" id=11]
+[sub_resource type="RectangleShape2D" id=7]
 extents = Vector2( 168, 10 )
 
-[sub_resource type="RectangleShape2D" id=12]
+[sub_resource type="RectangleShape2D" id=8]
 extents = Vector2( 264, 10 )
 
-[sub_resource type="RectangleShape2D" id=13]
+[sub_resource type="RectangleShape2D" id=9]
 extents = Vector2( 192, 10 )
 
-[sub_resource type="RectangleShape2D" id=14]
+[sub_resource type="RectangleShape2D" id=10]
 extents = Vector2( 132, 10 )
 
-[sub_resource type="RectangleShape2D" id=15]
+[sub_resource type="RectangleShape2D" id=11]
 extents = Vector2( 156, 10 )
 
-[sub_resource type="RectangleShape2D" id=16]
+[sub_resource type="RectangleShape2D" id=12]
 extents = Vector2( 240, 10 )
 
-[sub_resource type="RectangleShape2D" id=17]
+[sub_resource type="RectangleShape2D" id=13]
 extents = Vector2( 156, 10 )
 
 [node name="Level1" type="Node2D"]
 script = ExtResource( 3 )
 
 [node name="Background" type="TileMap" parent="."]
-tile_set = SubResource( 6 )
+tile_set = SubResource( 1 )
 cell_size = Vector2( 24, 24 )
 format = 1
 tile_data = PoolIntArray( 327714, 0, 0, 327716, 0, 0, 393250, 0, 0, 393252, 0, 0, 393260, 0, 0, 458772, 0, 0, 458786, 0, 0, 458788, 0, 0, 458796, 0, 0, 524308, 0, 0, 524314, 0, 0, 524322, 0, 0, 524324, 0, 0, 524332, 0, 0, 589844, 0, 0, 589850, 0, 0, 589858, 0, 0, 589860, 0, 0, 589868, 0, 0, 655365, 0, 0, 655373, 0, 0, 655383, 0, 0, 655392, 0, 0, 655396, 0, 0, 655404, 0, 0, 720901, 0, 0, 720909, 0, 0, 720919, 0, 0, 720928, 0, 0, 720932, 0, 0, 720940, 0, 0, 786437, 0, 0, 786445, 0, 0, 786455, 0, 0, 786464, 0, 0, 786468, 0, 0, 786476, 0, 0, 851973, 0, 0, 851981, 0, 0, 851991, 0, 0, 852000, 0, 0, 852004, 0, 0, 852012, 0, 0, 917509, 0, 0, 917517, 0, 0, 917527, 0, 0, 917536, 0, 0, 917540, 0, 0, 917548, 0, 0, 983045, 0, 0, 983049, 0, 0, 983056, 0, 0, 983057, 0, 0, 983072, 0, 0, 983076, 0, 0, 983084, 0, 0, 1048581, 0, 0, 1048585, 0, 0, 1048593, 0, 0, 1048601, 0, 0, 1048608, 0, 0, 1048612, 0, 0, 1048620, 0, 0, 1114117, 0, 0, 1114121, 0, 0, 1114129, 0, 0, 1114137, 0, 0, 1114144, 0, 0, 1114148, 0, 0, 1114156, 0, 0, 1179653, 0, 0, 1179657, 0, 0, 1179665, 0, 0, 1179673, 0, 0, 1179680, 0, 0, 1179684, 0, 0, 1179692, 0, 0, 1245189, 0, 0, 1245193, 0, 0, 1245201, 0, 0, 1245209, 0, 0, 1245216, 0, 0, 1245220, 0, 0, 1245228, 0, 0, 1310725, 0, 0, 1310729, 0, 0, 1310749, 0, 0, 1310752, 0, 0, 1310755, 0, 0, 1310764, 0, 0, 1376261, 0, 0, 1376265, 0, 0, 1376273, 0, 0, 1376285, 0, 0, 1376291, 0, 0, 1376300, 0, 0, 1441797, 0, 0, 1441801, 0, 0, 1441809, 0, 0, 1441821, 0, 0, 1441827, 0, 0, 1441836, 0, 0, 1507333, 0, 0, 1507337, 0, 0, 1507345, 0, 0, 1507357, 0, 0, 1507363, 0, 0, 1507372, 0, 0, 1572869, 0, 0, 1572873, 0, 0, 1572881, 0, 0, 1572893, 0, 0, 1572899, 0, 0, 1572908, 0, 0, 1638405, 0, 0, 1638409, 0, 0, 1638417, 0, 0, 1638429, 0, 0, 1638435, 0, 0, 1638444, 0, 0, 1703941, 0, 0, 1703945, 0, 0, 1703953, 0, 0, 1703965, 0, 0, 1703971, 0, 0, 1703980, 0, 0, 1769477, 0, 0, 1769481, 0, 0, 1769489, 0, 0, 1769507, 0, 0, 1769516, 0, 0, 1835013, 0, 0, 1835052, 0, 0 )
@@ -143,7 +143,7 @@ hframes = 5
 frame = 3
 
 [node name="DrillAnimation" type="AnimationPlayer" parent="Scenery"]
-anims/Drill = SubResource( 7 )
+anims/Drill = SubResource( 2 )
 
 [node name="Caterpilar" type="Sprite" parent="Scenery"]
 position = Vector2( 642.102, 670.519 )
@@ -152,17 +152,16 @@ hframes = 5
 frame = 1
 
 [node name="CaterpilarAnimation" type="AnimationPlayer" parent="Scenery"]
-anims/Run = SubResource( 8 )
+anims/Run = SubResource( 3 )
 
 [node name="Ground" type="TileMap" parent="."]
-tile_set = SubResource( 9 )
+tile_set = SubResource( 4 )
 cell_size = Vector2( 24, 24 )
 format = 1
 tile_data = PoolIntArray( 327714, 0, 0, 327715, 0, 1, 327716, 0, 1, 327717, 0, 1, 327718, 0, 1, 327719, 0, 1, 327720, 0, 1, 327721, 0, 1, 327722, 0, 1, 327723, 0, 1, 327724, 0, 1, 327725, 0, 1, 327726, 0, 1, 327727, 0, 2, 458768, 0, 0, 458769, 0, 1, 458770, 0, 1, 458771, 0, 1, 458772, 0, 1, 458773, 0, 1, 458774, 0, 1, 458775, 0, 1, 458776, 0, 1, 458777, 0, 1, 458778, 0, 1, 458779, 0, 2, 655363, 0, 0, 655364, 0, 1, 655365, 0, 1, 655366, 0, 1, 655367, 0, 1, 655368, 0, 1, 655369, 0, 1, 655370, 0, 1, 655371, 0, 1, 655372, 0, 1, 655373, 0, 1, 655374, 0, 2, 655379, 0, 0, 655380, 0, 1, 655381, 0, 1, 655382, 0, 1, 655383, 0, 1, 655384, 0, 1, 655385, 0, 1, 655386, 0, 1, 655387, 0, 1, 655388, 0, 1, 655389, 0, 1, 655390, 0, 1, 655391, 0, 1, 655392, 0, 1, 655393, 0, 1, 655394, 0, 2, 983048, 0, 0, 983049, 0, 1, 983050, 0, 1, 983051, 0, 1, 983052, 0, 1, 983053, 0, 1, 983054, 0, 1, 983055, 0, 1, 983056, 0, 1, 983057, 0, 1, 983058, 0, 1, 983059, 0, 1, 983060, 0, 1, 983061, 0, 1, 983062, 0, 1, 983063, 0, 1, 983064, 0, 1, 983065, 0, 1, 983066, 0, 1, 983067, 0, 1, 983068, 0, 1, 983069, 0, 2, 1310728, 0, 0, 1310729, 0, 1, 1310730, 0, 1, 1310731, 0, 1, 1310732, 0, 1, 1310733, 0, 1, 1310734, 0, 1, 1310735, 0, 1, 1310736, 0, 1, 1310737, 0, 1, 1310738, 0, 2, 1310744, 0, 0, 1310745, 0, 1, 1310746, 0, 1, 1310747, 0, 1, 1310748, 0, 1, 1310749, 0, 1, 1310750, 0, 1, 1310751, 0, 1, 1310752, 0, 1, 1310753, 0, 1, 1310754, 0, 1, 1310755, 0, 1, 1310756, 0, 2, 1572868, 0, 0, 1572869, 0, 1, 1572870, 0, 1, 1572871, 0, 1, 1572872, 0, 1, 1572873, 0, 1, 1572874, 0, 1, 1572875, 0, 1, 1572876, 0, 1, 1572877, 0, 1, 1572878, 0, 1, 1572879, 0, 1, 1572880, 0, 1, 1572881, 0, 1, 1572882, 0, 1, 1572883, 0, 1, 1572884, 0, 1, 1572885, 0, 1, 1572886, 0, 1, 1572887, 0, 2, 1572892, 0, 0, 1572893, 0, 1, 1572894, 0, 1, 1572895, 0, 1, 1572896, 0, 1, 1572897, 0, 1, 1572898, 0, 1, 1572899, 0, 1, 1572900, 0, 1, 1572901, 0, 1, 1572902, 0, 1, 1572903, 0, 1, 1572904, 0, 2 )
 
 [node name="RepairStation" parent="." instance=ExtResource( 5 )]
-visible = false
-position = Vector2( 597, 328 )
+position = Vector2( 447, 340 )
 
 [node name="Player" parent="." instance=ExtResource( 1 )]
 position = Vector2( 272, 160 )
@@ -968,7 +967,7 @@ collision_mask = 5
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="GroundColliders/StaticBody2D2"]
 position = Vector2( 8, 2 )
-shape = SubResource( 10 )
+shape = SubResource( 6 )
 one_way_collision = true
 
 [node name="StaticBody2D3" type="StaticBody2D" parent="GroundColliders"]
@@ -978,7 +977,7 @@ collision_mask = 5
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="GroundColliders/StaticBody2D3"]
 position = Vector2( 0, 3 )
-shape = SubResource( 11 )
+shape = SubResource( 7 )
 one_way_collision = true
 
 [node name="StaticBody2D4" type="StaticBody2D" parent="GroundColliders"]
@@ -988,7 +987,7 @@ collision_mask = 5
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="GroundColliders/StaticBody2D4"]
 position = Vector2( 8, 10 )
-shape = SubResource( 12 )
+shape = SubResource( 8 )
 one_way_collision = true
 
 [node name="StaticBody2D5" type="StaticBody2D" parent="GroundColliders"]
@@ -998,7 +997,7 @@ collision_mask = 5
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="GroundColliders/StaticBody2D5"]
 position = Vector2( -8, 2 )
-shape = SubResource( 13 )
+shape = SubResource( 9 )
 one_way_collision = true
 
 [node name="StaticBody2D6" type="StaticBody2D" parent="GroundColliders"]
@@ -1008,7 +1007,7 @@ collision_mask = 5
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="GroundColliders/StaticBody2D6"]
 position = Vector2( 4, -6 )
-shape = SubResource( 14 )
+shape = SubResource( 10 )
 one_way_collision = true
 
 [node name="StaticBody2D7" type="StaticBody2D" parent="GroundColliders"]
@@ -1018,7 +1017,7 @@ collision_mask = 5
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="GroundColliders/StaticBody2D7"]
 position = Vector2( -12, 2 )
-shape = SubResource( 15 )
+shape = SubResource( 11 )
 one_way_collision = true
 
 [node name="StaticBody2D8" type="StaticBody2D" parent="GroundColliders"]
@@ -1028,7 +1027,7 @@ collision_mask = 5
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="GroundColliders/StaticBody2D8"]
 position = Vector2( 16, 2 )
-shape = SubResource( 16 )
+shape = SubResource( 12 )
 one_way_collision = true
 
 [node name="StaticBody2D9" type="StaticBody2D" parent="GroundColliders"]
@@ -1038,7 +1037,7 @@ collision_mask = 5
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="GroundColliders/StaticBody2D9"]
 position = Vector2( -4, 2 )
-shape = SubResource( 17 )
+shape = SubResource( 13 )
 one_way_collision = true
 
 [node name="Enemies" type="Node" parent="."]

@@ -25,6 +25,7 @@ collision_layer = 32
 shape = SubResource( 1 )
 
 [node name="RepairTimer" type="Timer" parent="."]
+wait_time = 2.0
 autostart = true
 
 [connection signal="body_entered" from="ActivationArea" to="." method="_on_ActivationArea_body_entered"]
