@@ -1,6 +1,7 @@
-[gd_scene load_steps=2 format=2]
+[gd_scene load_steps=3 format=2]
 
 [ext_resource path="res://ui/shop/shop.gd" type="Script" id=1]
+[ext_resource path="res://assets/themes/main_theme.tres" type="Theme" id=2]
 
 [node name="Shop" type="CanvasLayer"]
 script = ExtResource( 1 )
@@ -49,6 +50,7 @@ margin_left = 13.0
 margin_top = 74.0
 margin_right = 101.0
 margin_bottom = 88.0
+theme = ExtResource( 2 )
 text = "Jump"
 align = 1
 __meta__ = {
@@ -202,10 +204,11 @@ __meta__ = {
 }
 
 [node name="Label" type="Label" parent="Control/JumpUpgrade/PriceContainer"]
-margin_left = 12.0
+margin_left = -6.0
 margin_top = 9.0
-margin_right = 68.0
-margin_bottom = 23.0
+margin_right = 50.0
+margin_bottom = 31.0
+theme = ExtResource( 2 )
 valign = 1
 __meta__ = {
 "_edit_use_anchors_": false
@@ -234,6 +237,7 @@ margin_left = 16.0
 margin_top = 58.0
 margin_right = 97.0
 margin_bottom = 72.0
+theme = ExtResource( 2 )
 text = "Bullet Speed"
 align = 1
 __meta__ = {
@@ -387,10 +391,11 @@ __meta__ = {
 }
 
 [node name="Label" type="Label" parent="Control/BulletVelocityUpgrade/PriceContainer"]
-margin_left = 12.0
+margin_left = -6.0
 margin_top = 9.0
-margin_right = 68.0
-margin_bottom = 23.0
+margin_right = 50.0
+margin_bottom = 31.0
+theme = ExtResource( 2 )
 valign = 1
 __meta__ = {
 "_edit_use_anchors_": false
@@ -420,6 +425,7 @@ margin_left = 16.0
 margin_top = 65.0
 margin_right = 97.0
 margin_bottom = 79.0
+theme = ExtResource( 2 )
 text = "Reload Time"
 align = 1
 __meta__ = {
@@ -573,10 +579,11 @@ __meta__ = {
 }
 
 [node name="Label" type="Label" parent="Control/ReloadTime/PriceContainer"]
-margin_left = 12.0
+margin_left = -6.0
 margin_top = 9.0
-margin_right = 68.0
-margin_bottom = 23.0
+margin_right = 50.0
+margin_bottom = 31.0
+theme = ExtResource( 2 )
 valign = 1
 __meta__ = {
 "_edit_use_anchors_": false
@@ -605,6 +612,7 @@ margin_left = 16.0
 margin_top = 63.0
 margin_right = 97.0
 margin_bottom = 77.0
+theme = ExtResource( 2 )
 text = "Caliber"
 align = 1
 __meta__ = {
@@ -758,10 +766,11 @@ __meta__ = {
 }
 
 [node name="Label" type="Label" parent="Control/Caliber/PriceContainer"]
-margin_left = 12.0
+margin_left = -6.0
 margin_top = 3.0
-margin_right = 68.0
-margin_bottom = 17.0
+margin_right = 50.0
+margin_bottom = 25.0
+theme = ExtResource( 2 )
 valign = 1
 __meta__ = {
 "_edit_use_anchors_": false
@@ -790,6 +799,7 @@ margin_left = 8.0
 margin_top = 63.0
 margin_right = 105.0
 margin_bottom = 77.0
+theme = ExtResource( 2 )
 text = "Anti Knockback"
 align = 1
 __meta__ = {
@@ -928,6 +938,7 @@ margin_left = 274.0
 margin_top = 9.0
 margin_right = 370.0
 margin_bottom = 49.0
+theme = ExtResource( 2 )
 text = "UPGRADE"
 __meta__ = {
 "_edit_use_anchors_": false
@@ -943,10 +954,11 @@ __meta__ = {
 }
 
 [node name="Label" type="Label" parent="Control/AntiKBUpgrade/PriceContainer"]
-margin_left = 12.0
+margin_left = -6.0
 margin_top = 9.0
-margin_right = 68.0
-margin_bottom = 23.0
+margin_right = 50.0
+margin_bottom = 31.0
+theme = ExtResource( 2 )
 valign = 1
 __meta__ = {
 "_edit_use_anchors_": false
@@ -975,6 +987,7 @@ margin_left = 8.0
 margin_top = 63.0
 margin_right = 105.0
 margin_bottom = 77.0
+theme = ExtResource( 2 )
 text = "Repair Station"
 align = 1
 __meta__ = {
@@ -1128,10 +1141,11 @@ __meta__ = {
 }
 
 [node name="Label" type="Label" parent="Control/RepairStationUpgrade/PriceContainer"]
-margin_left = 12.0
+margin_left = -6.0
 margin_top = 3.0
-margin_right = 68.0
-margin_bottom = 17.0
+margin_right = 50.0
+margin_bottom = 25.0
+theme = ExtResource( 2 )
 valign = 1
 __meta__ = {
 "_edit_use_anchors_": false
@@ -1160,6 +1174,7 @@ margin_left = 10.0
 margin_top = 61.0
 margin_right = 107.0
 margin_bottom = 75.0
+theme = ExtResource( 2 )
 text = "Drill Health"
 align = 1
 __meta__ = {
@@ -1313,10 +1328,11 @@ __meta__ = {
 }
 
 [node name="Label" type="Label" parent="Control/StructureHealthUpgrade/PriceContainer"]
-margin_left = 12.0
+margin_left = -6.0
 margin_top = 3.0
-margin_right = 68.0
-margin_bottom = 17.0
+margin_right = 50.0
+margin_bottom = 25.0
+theme = ExtResource( 2 )
 valign = 1
 __meta__ = {
 "_edit_use_anchors_": false
@@ -1345,6 +1361,7 @@ margin_left = 10.0
 margin_top = 61.0
 margin_right = 107.0
 margin_bottom = 75.0
+theme = ExtResource( 2 )
 text = "Damage"
 align = 1
 __meta__ = {
@@ -1498,10 +1515,11 @@ __meta__ = {
 }
 
 [node name="Label" type="Label" parent="Control/DamageUpgrade/PriceContainer"]
-margin_left = 12.0
+margin_left = -6.0
 margin_top = 3.0
-margin_right = 68.0
-margin_bottom = 17.0
+margin_right = 50.0
+margin_bottom = 25.0
+theme = ExtResource( 2 )
 valign = 1
 __meta__ = {
 "_edit_use_anchors_": false
@@ -1529,6 +1547,7 @@ margin_left = 10.0
 margin_top = 55.0
 margin_right = 107.0
 margin_bottom = 69.0
+theme = ExtResource( 2 )
 text = "Breath Power "
 align = 1
 __meta__ = {
@@ -1682,10 +1701,11 @@ __meta__ = {
 }
 
 [node name="Label" type="Label" parent="Control/KBUpgrade/PriceContainer"]
-margin_left = 12.0
+margin_left = -6.0
 margin_top = 3.0
-margin_right = 68.0
-margin_bottom = 17.0
+margin_right = 50.0
+margin_bottom = 25.0
+theme = ExtResource( 2 )
 valign = 1
 __meta__ = {
 "_edit_use_anchors_": false
@@ -1719,9 +1739,10 @@ __meta__ = {
 
 [node name="Label" type="Label" parent="Control/Popup"]
 margin_left = 7.0
-margin_top = -32.0
+margin_top = -34.0
 margin_right = 504.0
-margin_bottom = 32.0
+margin_bottom = 30.0
+theme = ExtResource( 2 )
 custom_constants/line_spacing = 2
 align = 1
 valign = 1
