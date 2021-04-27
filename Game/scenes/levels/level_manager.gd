@@ -29,6 +29,13 @@ var enemies_level := 1
 # READY
 ####################
 
+func _process(delta: float) -> void:
+	if current_wave_step == WAVE_STEPS.PRE_WAVE or current_wave_step == WAVE_STEPS.WAVE: 
+		for bg in $Bgs.get_children().size():
+			$Bgs.get_child(bg).rect_global_position.x -= 200.0 * delta
+			if $Bgs.get_child(bg).rect_global_position.x <= -1280.0:
+				$Bgs.get_child(bg).rect_global_position.x = 1280.0
+
 func _ready() -> void:
 	PlayerStats.reset_stats()
 	$Player.respawn_point = $PlayerRespawn.global_position
@@ -119,7 +126,7 @@ func _on_Enemy_Died() -> void:
 	HUD.set_wave_state(text)
 	if enemies_kiled >= enemies_to_spawn:
 		for e in $Enemies.get_children().size():
-			$Ennemis.get_child(e).queue_free()
+			$Enemis.get_child(e).queue_free()
 		launch_wave_step(WAVE_STEPS.POST_WAVE)
 		enemies_to_spawn += randi() % 5 + 1
 

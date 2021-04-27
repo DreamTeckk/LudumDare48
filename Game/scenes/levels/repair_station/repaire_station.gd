@@ -31,6 +31,7 @@ func _on_ActivationArea_body_exited(body: Node) -> void:
 		player.disconnect("stop_repairs", self, "_on_Player_Stop_Repairs")
 		activable = false
 		$RepairTimer.stop()
+		$repairAudio.stop()
 		
 func _on_Player_Repairs() -> void:
 	activable = true
@@ -40,7 +41,7 @@ func _on_Player_Repairs() -> void:
 func _on_Player_Stop_Repairs() -> void:
 	activable = false
 	$RepairTimer.stop()
-	$repairAudio.stop()	
+	$repairAudio.stop()
 
 func _on_RepairTimer_timeout() -> void:
 	if activable and PlayerStats.repair_station_level >= 1 and is_wave_running:
