@@ -12,54 +12,58 @@ var UpgradeDict := {
 	"bullet_velocity": {
 		"level" : 0,
 		"max_level" : 10,
-		"price" : 100.0,
+		"price" : 10.0,
 		"description" : "Increase the speed of your bullets."
 	},
 	"reload_time": {
 		"level" : 0,
 		"max_level" : 10,
-		"price" : 100.0,
+		"price" : 15.0,
 		"description" : "Shoot faster."
 	},
 	"caliber": {
 		"level" : 0,
 		"max_level" : 10,
-		"price" : 100.0,
+		"price" : 12.0,
 		"description" : "Your bullets are bigger, but slower."
 	},
 	"breath_power": {
 		"level" : 0,
 		"max_level" : 10,
-		"price" : 100.0,
+		"price" : 15.0,
 		"description" : "Increase the knockback power of your bullets."
 	},
 	"damages": {
 		"level" : 0,
 		"max_level" : 10,
-		"price" : 100.0,
+		"price" : 15.0,
 		"description" : "Increase damages of your bullets."
 	},
 	"structur_health": {
 		"level" : 0,
 		"max_level" : 10,
-		"price" : 100.0,
+		"price" : 50.0,
 		"description" : "Increase the Drill's maximum health."
 	},
 	"anti_knockback": {
 		"level" : 0,
 		"max_level" : 10,
-		"price" : 100.0,
+		"price" : 25.0,
 		"description" : "You are more resistant to enemies knockback."
 	},
 	"repaire_station": {
 		"level" : 0,
 		"max_level" : 10,
-		"price" : 100.0,
-		"description" : "The first upgrade give you a repaire station that heal the Drill when activated. Next upgrade increase the health point gain per second. BE CAREFUL, you can't shoot when reapairing the Drill"
+		"price" : 8.0,
+		"description" : "The first upgrade give you a repair station that heal the Drill when near from the station. Next upgrade increase the health point gain per second. BE CAREFUL, you can't repair whene shooting."
 	}
 }
 
 signal leave_shop
+
+func play_buy() -> void:
+	if !$BuySound.playing:
+		$BuySound.play()
 
 func _ready() -> void:
 	$Control/JumpUpgrade/PriceContainer/Label.text = str(UpgradeDict.get('jump').price)
@@ -106,7 +110,22 @@ func update_shop() -> void:
 		$Control/RepairStationUpgrade/RepairStationUpgradeButton.disabled = true
 	else:
 		$Control/RepairStationUpgrade/RepairStationUpgradeButton.disabled = false
-
+	#BREATH POWER
+	if PlayerStats.money < UpgradeDict.get('breath_power').price:
+		$Control/KBUpgrade/KBUpgradeButton.disabled = true
+	else:
+		$Control/KBUpgrade/KBUpgradeButton.disabled = false
+	#REPAIR STATION
+	if PlayerStats.money < UpgradeDict.get('damages').price:
+		$Control/DamageUpgrade/DamageUpgradeButton.disabled = true
+	else:
+		$Control/DamageUpgrade/DamageUpgradeButton.disabled = false
+	#REPAIR STATION
+	if PlayerStats.money < UpgradeDict.get('structur_health').price:
+		$Control/StructureHealthUpgrade/StructureHealthUpgradeButton.disabled = true
+	else:
+		$Control/StructureHealthUpgrade/StructureHealthUpgradeButton.disabled = false
+	
 
 # JUMP
 ##########################
@@ -118,6 +137,7 @@ func _on_JumpUpgradeButton_pressed() -> void:
 			UpgradeDict.get('jump').price = ceil(UpgradeDict.get('jump').price * (1.0 + float(PlayerStats.jump_level) / 10))
 			$Control/JumpUpgrade/PriceContainer/Label.text = str(UpgradeDict.get('jump').price)
 			update_shop()
+			play_buy()
 			for level in range(PlayerStats.jump_level):
 				$Control/JumpUpgrade/Levels.get_child(level).color = BUY_COLOR
 
@@ -143,6 +163,7 @@ func _on_BulletVelocityUpgradeButton_pressed() -> void:
 			UpgradeDict.get('bullet_velocity').price = ceil(UpgradeDict.get('bullet_velocity').price * (1.0 + float(PlayerStats.bullet_velocity_level) / 10))
 			$Control/BulletVelocityUpgrade/PriceContainer/Label.text = str(UpgradeDict.get('bullet_velocity').price)
 			update_shop()
+			play_buy()
 			for level in range(PlayerStats.bullet_velocity_level):
 				$Control/BulletVelocityUpgrade/Levels.get_child(level).color = BUY_COLOR
 
@@ -166,6 +187,7 @@ func _on_ReloadTimeUpgradeButton_pressed() -> void:
 			UpgradeDict.get('reload_time').price = ceil(UpgradeDict.get('reload_time').price * (1.0 + float(PlayerStats.reload_time_level) / 10))
 			$Control/ReloadTime/PriceContainer/Label.text = str(UpgradeDict.get('reload_time').price)
 			update_shop()
+			play_buy()
 			for level in range(PlayerStats.reload_time_level):
 				$Control/ReloadTime/Levels.get_child(level).color = BUY_COLOR
 
@@ -189,6 +211,7 @@ func _on_CaliberUpgradeButton_pressed() -> void:
 			UpgradeDict.get('caliber').price = ceil(UpgradeDict.get('caliber').price * (1.0 + float(PlayerStats.caliber_level) / 10))
 			$Control/Caliber/PriceContainer/Label.text = str(UpgradeDict.get('caliber').price)
 			update_shop()
+			play_buy()
 			for level in range(PlayerStats.caliber_level):
 				$Control/Caliber/Levels.get_child(level).color = BUY_COLOR
 
@@ -212,6 +235,7 @@ func _on_AntiKBUpgrade_pressed() -> void:
 			UpgradeDict.get('anti_knockback').price = ceil(UpgradeDict.get('anti_knockback').price * (1.0 + float(PlayerStats.anti_knockback_level) / 10))
 			$Control/AntiKBUpgrade/PriceContainer/Label.text = str(UpgradeDict.get('anti_knockback').price)
 			update_shop()
+			play_buy()
 			for level in range(PlayerStats.anti_knockback_level):
 				$Control/AntiKBUpgrade/Levels.get_child(level).color = BUY_COLOR
 
@@ -236,6 +260,7 @@ func _on_RepairStationUpgradeButton_pressed() -> void:
 			UpgradeDict.get('repaire_station').price = ceil(UpgradeDict.get('repaire_station').price * (1.0 + float(PlayerStats.repair_station_level) / 10))
 			$Control/RepairStationUpgrade/PriceContainer/Label.text = str(UpgradeDict.get('repaire_station').price)
 			update_shop()
+			play_buy()
 			for level in range(PlayerStats.repair_station_level):
 				$Control/RepairStationUpgrade/Levels.get_child(level).color = BUY_COLOR
 
@@ -255,10 +280,12 @@ func _on_StructureHealthUpgradeButton_pressed() -> void:
 	if PlayerStats.structure_health_level < UpgradeDict.get('structur_health').max_level:
 		if PlayerStats.money >= UpgradeDict.get('structur_health').price:
 			PlayerStats.structure_health_level += 1
+			PlayerStats.structure_max_health += 50
 			PlayerStats.money -= UpgradeDict.get('structur_health').price
 			UpgradeDict.get('structur_health').price = ceil(UpgradeDict.get('structur_health').price * (1.0 + float(PlayerStats.structure_health_level) / 10))
 			$Control/StructureHealthUpgrade/PriceContainer/Label.text = str(UpgradeDict.get('structur_health').price)
 			update_shop()
+			play_buy()
 			for level in range(PlayerStats.structure_health_level):
 				$Control/StructureHealthUpgrade/Levels.get_child(level).color = BUY_COLOR
 
@@ -282,6 +309,7 @@ func _on_DamageUpgradeButton_pressed() -> void:
 			UpgradeDict.get('damages').price = ceil(UpgradeDict.get('damages').price * (1.0 + float(PlayerStats.damage_level) / 10))
 			$Control/DamageUpgrade/PriceContainer/Label.text = str(UpgradeDict.get('damages').price)
 			update_shop()
+			play_buy()
 			for level in range(PlayerStats.damage_level):
 				$Control/DamageUpgrade/Levels.get_child(level).color = BUY_COLOR
 
@@ -299,11 +327,12 @@ func _on_DamageUpgradeButton_mouse_exited() -> void:
 func _on_KBUpgradeButton_pressed() -> void:
 	if PlayerStats.knockback_level < UpgradeDict.get('breath_power').max_level:
 		if PlayerStats.money >= UpgradeDict.get('breath_power').price:
-			PlayerStats.damage_level += 1
+			PlayerStats.knockback_level += 1
 			PlayerStats.money -= UpgradeDict.get('breath_power').price
 			UpgradeDict.get('breath_power').price = ceil(UpgradeDict.get('breath_power').price * (1.0 + float(PlayerStats.knockback_level) / 10))
 			$Control/KBUpgrade/PriceContainer/Label.text = str(UpgradeDict.get('breath_power').price)
 			update_shop()
+			play_buy()
 			for level in range(PlayerStats.knockback_level):
 				$Control/KBUpgrade/Levels.get_child(level).color = BUY_COLOR
 
@@ -322,5 +351,6 @@ func show_upgrade_info(text: String) -> void:
 
 
 func _on_ContinueButton_pressed() -> void:
+	$ButtonAudio.play()
 	emit_signal("leave_shop")
 

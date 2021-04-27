@@ -2,15 +2,18 @@ extends Enemy
 
 var target : KinematicBody2D
 
+func _process(delta: float) -> void:
+	$HealthBar.value = float(health) / float(max_health) * 100
+
 func _ready() -> void:
-	speed = 200.0
-	damage = 500.0
-	weight = 10.0
+	speed = clamp(ceil(200.0 * pow(1.05, float(PlayerStats.layers))), 200, 1000)
+	damage = clamp(ceil(500.0 * pow(1.05, float(PlayerStats.layers))), 500, INF)
+	weight = clamp(ceil(100.0 * pow(1.3, float(PlayerStats.layers))), 30, INF)
 	attack_speed = 2.0
-	max_health = 20.0
+	max_health = 5.0 * PlayerStats.layers
 	aggresive = true
 	health = max_health
-	reward = 3 * PlayerStats.difficulty
+	reward = ceil(5 * pow(1.2, float(PlayerStats.layers))) 
 	set_physics_process(true)
 	setup_attack_timer()
 	$AnimationPlayer.play("Fly")
@@ -49,21 +52,24 @@ func _on_Attackbox_body_entered(body: Node) -> void:
 			p.take_damage(direction, damage)
 
 func die() -> void:
-	PlayerStats.total_money += reward
-	PlayerStats.money += reward
-	$AnimationPlayer.play("Die")
+	if !dead:
+		dead = true
+		PlayerStats.total_money += reward
+		PlayerStats.money += reward
+		emit_signal("died")
+		$DeathAudio.play()
+		$AnimationPlayer.play("Die")
 	
 func _on_BulletBox_body_entered(body: Node) -> void:
 	if body.is_in_group("Bullet") and !body.wait_to_die:
-		print("hit")
 		body.wait_to_die = true
-		
+		$HitAudio.play()
 		var direction = Vector2.ONE
 		var angle = self.global_position.angle_to_point(body.global_position)
 		var punch_velocity = Vector2(cos(angle), sin(angle)) * body.final_punch
-		print(punch_velocity)
 		
 		health = clamp(health - body.final_damage,0 , max_health)
+		PlayerStats.damage_done += body.final_damage
 		var health_percent := health / max_health
 		
 		$ColorRect.color = Color8(

@@ -1,7 +1,11 @@
-[gd_scene load_steps=8 format=2]
+[gd_scene load_steps=12 format=2]
 
 [ext_resource path="res://entities/enemies/spider/spider.gd" type="Script" id=1]
 [ext_resource path="res://entities/enemies/spider/assets/Spider_SpriteSheet.png" type="Texture" id=2]
+[ext_resource path="res://entities/enemies/assets/enemy_healthbar.png" type="Texture" id=3]
+[ext_resource path="res://entities/enemies/assets/hit.mp3" type="AudioStream" id=4]
+[ext_resource path="res://entities/enemies/assets/explosion.mp3" type="AudioStream" id=5]
+[ext_resource path="res://entities/enemies/spider/assets/spider_hit.mp3" type="AudioStream" id=6]
 
 [sub_resource type="RectangleShape2D" id=1]
 extents = Vector2( 12, 12 )
@@ -147,6 +151,35 @@ shape = SubResource( 2 )
 anims/Attack = SubResource( 3 )
 anims/Die = SubResource( 4 )
 anims/Spawn = SubResource( 5 )
+
+[node name="HealthBar" type="TextureProgress" parent="."]
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = -12.0
+margin_top = -17.0
+margin_right = 12.0
+margin_bottom = -15.0
+texture_under = ExtResource( 3 )
+texture_progress = ExtResource( 3 )
+tint_under = Color( 0.529412, 0.0470588, 0.0470588, 1 )
+tint_progress = Color( 0.164706, 0.709804, 0.2, 1 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="HitAudio" type="AudioStreamPlayer" parent="."]
+stream = ExtResource( 4 )
+volume_db = -10.0
+
+[node name="DeathAudio" type="AudioStreamPlayer" parent="."]
+stream = ExtResource( 5 )
+volume_db = -10.0
+
+[node name="AttackAudio" type="AudioStreamPlayer" parent="."]
+stream = ExtResource( 6 )
+volume_db = -20.0
 
 [connection signal="timeout" from="AttackTimer" to="." method="_on_AttackTimer_timeout"]
 [connection signal="screen_exited" from="VisibilityNotifier2D" to="." method="_on_VisibilityNotifier2D_screen_exited"]

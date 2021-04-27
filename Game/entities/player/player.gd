@@ -3,7 +3,7 @@ extends KinematicBody2D
 class_name Player
 
 const BASE_RELOAD_TIME := 1.05
-const ANTI_KNOCKBACK_BASE := 100.0 
+const ANTI_KNOCKBACK_BASE := 150.0 
 
 export(float) var speed := 200.0
 export(float) var jump_speed := 500.0
@@ -11,6 +11,8 @@ export(float) var max_health := 100.0
 export(float) var gravity := 2000.0
 
 var punchable_enemies := []
+
+var respawn_point : Vector2
 
 var jump_used := 0
 var jumping := false
@@ -31,7 +33,10 @@ var _weapon_direction = Weapon_Direction.EAST
 onready var Bullet_scene := load("res://entities/bullet/bullet.tscn")
 
 signal repairs
+signal respawning
+signal respawned
 signal stop_repairs
+signal get_hit
 
 func _ready() -> void:
 	pass # Replace with function body.
@@ -52,6 +57,7 @@ func _physics_process(delta: float) -> void:
 			$AnimationPlayer.play("Jump")
 			jumping = true
 			pressing_jump = true
+			$JumpAudio.play()
 		else :
 			_velocity.y = 0.0
 			jump_used = 0
@@ -65,6 +71,7 @@ func _physics_process(delta: float) -> void:
 			_velocity.y -= jump_speed
 			pressing_jump = true
 			jumping = true
+			$JumpAudio.play()
 		else:
 			_velocity.y += delta * gravity
 
@@ -78,8 +85,7 @@ func _physics_process(delta: float) -> void:
 	if Input.is_action_pressed("player_1_down"):
 		$CollisionShape2D.disabled = true
 	
-	if Input.is_action_just_released("player_1_down"):
-		$CollisionShape2D.disabled = true
+	if !Input.is_action_pressed("player_1_down"):
 		$CollisionShape2D.disabled = false
 	
 	self.move_and_slide(_velocity, Vector2.UP)
@@ -90,6 +96,7 @@ func _physics_process(delta: float) -> void:
 	if Input.is_action_pressed("player_1_attack"):
 		emit_signal("stop_repairs") 
 		if can_shoot:
+			$Weapon/ShootAudio.play()
 			$Weapon/WeaponAnimation.play("Shoot")
 			var bullet : KinematicBody2D = Bullet_scene.instance()
 			self.get_parent().add_child(bullet)
@@ -98,7 +105,6 @@ func _physics_process(delta: float) -> void:
 			bullet.setup()
 			can_shoot = false
 			$ReloadTimer.wait_time = BASE_RELOAD_TIME - float(PlayerStats.reload_time_level) * 0.1
-			print($ReloadTimer.wait_time)
 			$ReloadTimer.start()	
 	else:
 		emit_signal("repairs") 
@@ -151,6 +157,8 @@ func _on_PunchArea_body_exited(body: Node) -> void:
 		
 func take_damage(direction: Vector2, strenght: int) -> void:
 	# Hit from bottom
+	$HitAudio.play()
+	emit_signal("get_hit")
 	if direction.y < 0:
 		_damage_velocity.y = clamp(direction.y * strenght - ANTI_KNOCKBACK_BASE * PlayerStats.anti_knockback_level, 0, -INF)
 	else:
@@ -168,3 +176,20 @@ func _on_ReloadTimer_timeout() -> void:
 func _on_AnimationPlayer_animation_finished(anim_name: String) -> void:
 	if anim_name == "Jump":
 		_animation_state = Animation_State.IDLE  
+
+
+func _on_VisibilityNotifier2D_screen_exited() -> void:
+	$FallAudio.play()
+	$RespawnTime.start()
+	emit_signal("respawning")
+	set_physics_process(false)
+	set_process_input(false)
+
+func _on_RespawnTime_timeout() -> void:
+	emit_signal("respawned")
+	self.global_position = respawn_point
+	set_physics_process(true)
+	set_process_unhandled_input(true)
+	set_process_input(true)
+	set_process_unhandled_input(true)
+	$RespawnAudio.play()

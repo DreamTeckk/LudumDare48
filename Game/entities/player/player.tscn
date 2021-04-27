@@ -1,9 +1,14 @@
-[gd_scene load_steps=11 format=2]
+[gd_scene load_steps=16 format=2]
 
 [ext_resource path="res://entities/player/player.gd" type="Script" id=1]
 [ext_resource path="res://entities/player/assets/Player_SpriteSheet.png" type="Texture" id=2]
 [ext_resource path="res://entities/player/assets/Weapon.png" type="Texture" id=3]
 [ext_resource path="res://entities/player/assets/muzzle_flash_SpriteSheet.png" type="Texture" id=4]
+[ext_resource path="res://entities/player/assets/shot.mp3" type="AudioStream" id=5]
+[ext_resource path="res://entities/player/assets/jump.mp3" type="AudioStream" id=6]
+[ext_resource path="res://entities/player/assets/player_hit.mp3" type="AudioStream" id=7]
+[ext_resource path="res://entities/player/assets/player_fall.mp3" type="AudioStream" id=8]
+[ext_resource path="res://entities/player/assets/player_respawn.mp3" type="AudioStream" id=9]
 
 [sub_resource type="RectangleShape2D" id=1]
 extents = Vector2( 7.9834, 8.03409 )
@@ -142,6 +147,10 @@ texture = ExtResource( 4 )
 hframes = 6
 frame = 1
 
+[node name="ShootAudio" type="AudioStreamPlayer" parent="Weapon"]
+stream = ExtResource( 5 )
+volume_db = -20.0
+
 [node name="ReloadTimer" type="Timer" parent="."]
 one_shot = true
 
@@ -150,7 +159,32 @@ anims/Idle = SubResource( 4 )
 anims/Jump = SubResource( 5 )
 anims/Run = SubResource( 6 )
 
+[node name="JumpAudio" type="AudioStreamPlayer" parent="."]
+stream = ExtResource( 6 )
+volume_db = -25.0
+
+[node name="VisibilityNotifier2D" type="VisibilityNotifier2D" parent="."]
+scale = Vector2( 4.8, 4.8 )
+
+[node name="RespawnTime" type="Timer" parent="."]
+wait_time = 3.0
+one_shot = true
+
+[node name="HitAudio" type="AudioStreamPlayer" parent="."]
+stream = ExtResource( 7 )
+volume_db = -10.0
+
+[node name="FallAudio" type="AudioStreamPlayer" parent="."]
+stream = ExtResource( 8 )
+volume_db = -10.0
+
+[node name="RespawnAudio" type="AudioStreamPlayer" parent="."]
+stream = ExtResource( 9 )
+volume_db = -10.0
+
 [connection signal="body_entered" from="PunchArea" to="." method="_on_PunchArea_body_entered"]
 [connection signal="body_exited" from="PunchArea" to="." method="_on_PunchArea_body_exited"]
 [connection signal="timeout" from="ReloadTimer" to="." method="_on_ReloadTimer_timeout"]
 [connection signal="animation_finished" from="AnimationPlayer" to="." method="_on_AnimationPlayer_animation_finished"]
+[connection signal="screen_exited" from="VisibilityNotifier2D" to="." method="_on_VisibilityNotifier2D_screen_exited"]
+[connection signal="timeout" from="RespawnTime" to="." method="_on_RespawnTime_timeout"]

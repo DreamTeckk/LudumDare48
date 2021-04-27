@@ -1,4 +1,4 @@
-[gd_scene load_steps=22 format=2]
+[gd_scene load_steps=23 format=2]
 
 [ext_resource path="res://entities/player/player.tscn" type="PackedScene" id=1]
 [ext_resource path="res://assets/tilesets/tileset.png" type="Texture" id=2]
@@ -125,6 +125,23 @@ extents = Vector2( 240, 10 )
 [sub_resource type="RectangleShape2D" id=13]
 extents = Vector2( 156, 10 )
 
+[sub_resource type="Animation" id=14]
+resource_name = "Shake"
+length = 0.25
+step = 0.05
+tracks/0/type = "value"
+tracks/0/path = NodePath(".:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.05, 0.1, 0.15, 0.2 ),
+"transitions": PoolRealArray( 1, 1, 1, 1, 1 ),
+"update": 0,
+"values": [ Vector2( 640, 360 ), Vector2( 642, 360 ), Vector2( 638, 360 ), Vector2( 642, 360 ), Vector2( 640, 360 ) ]
+}
+
 [node name="Level1" type="Node2D"]
 script = ExtResource( 3 )
 
@@ -132,7 +149,7 @@ script = ExtResource( 3 )
 tile_set = SubResource( 1 )
 cell_size = Vector2( 24, 24 )
 format = 1
-tile_data = PoolIntArray( 327714, 0, 0, 327716, 0, 0, 393250, 0, 0, 393252, 0, 0, 393260, 0, 0, 458772, 0, 0, 458786, 0, 0, 458788, 0, 0, 458796, 0, 0, 524308, 0, 0, 524314, 0, 0, 524322, 0, 0, 524324, 0, 0, 524332, 0, 0, 589844, 0, 0, 589850, 0, 0, 589858, 0, 0, 589860, 0, 0, 589868, 0, 0, 655365, 0, 0, 655373, 0, 0, 655383, 0, 0, 655392, 0, 0, 655396, 0, 0, 655404, 0, 0, 720901, 0, 0, 720909, 0, 0, 720919, 0, 0, 720928, 0, 0, 720932, 0, 0, 720940, 0, 0, 786437, 0, 0, 786445, 0, 0, 786455, 0, 0, 786464, 0, 0, 786468, 0, 0, 786476, 0, 0, 851973, 0, 0, 851981, 0, 0, 851991, 0, 0, 852000, 0, 0, 852004, 0, 0, 852012, 0, 0, 917509, 0, 0, 917517, 0, 0, 917527, 0, 0, 917536, 0, 0, 917540, 0, 0, 917548, 0, 0, 983045, 0, 0, 983049, 0, 0, 983056, 0, 0, 983057, 0, 0, 983072, 0, 0, 983076, 0, 0, 983084, 0, 0, 1048581, 0, 0, 1048585, 0, 0, 1048593, 0, 0, 1048601, 0, 0, 1048608, 0, 0, 1048612, 0, 0, 1048620, 0, 0, 1114117, 0, 0, 1114121, 0, 0, 1114129, 0, 0, 1114137, 0, 0, 1114144, 0, 0, 1114148, 0, 0, 1114156, 0, 0, 1179653, 0, 0, 1179657, 0, 0, 1179665, 0, 0, 1179673, 0, 0, 1179680, 0, 0, 1179684, 0, 0, 1179692, 0, 0, 1245189, 0, 0, 1245193, 0, 0, 1245201, 0, 0, 1245209, 0, 0, 1245216, 0, 0, 1245220, 0, 0, 1245228, 0, 0, 1310725, 0, 0, 1310729, 0, 0, 1310749, 0, 0, 1310752, 0, 0, 1310755, 0, 0, 1310764, 0, 0, 1376261, 0, 0, 1376265, 0, 0, 1376273, 0, 0, 1376285, 0, 0, 1376291, 0, 0, 1376300, 0, 0, 1441797, 0, 0, 1441801, 0, 0, 1441809, 0, 0, 1441821, 0, 0, 1441827, 0, 0, 1441836, 0, 0, 1507333, 0, 0, 1507337, 0, 0, 1507345, 0, 0, 1507357, 0, 0, 1507363, 0, 0, 1507372, 0, 0, 1572869, 0, 0, 1572873, 0, 0, 1572881, 0, 0, 1572893, 0, 0, 1572899, 0, 0, 1572908, 0, 0, 1638405, 0, 0, 1638409, 0, 0, 1638417, 0, 0, 1638429, 0, 0, 1638435, 0, 0, 1638444, 0, 0, 1703941, 0, 0, 1703945, 0, 0, 1703953, 0, 0, 1703965, 0, 0, 1703971, 0, 0, 1703980, 0, 0, 1769477, 0, 0, 1769481, 0, 0, 1769489, 0, 0, 1769507, 0, 0, 1769516, 0, 0, 1835013, 0, 0, 1835052, 0, 0 )
+tile_data = PoolIntArray( 327714, 0, 0, 327716, 0, 0, 393250, 0, 0, 393252, 0, 0, 393257, 0, 0, 393260, 0, 0, 458772, 0, 0, 458786, 0, 0, 458788, 0, 0, 458793, 0, 0, 458796, 0, 0, 524308, 0, 0, 524314, 0, 0, 524322, 0, 0, 524324, 0, 0, 524329, 0, 0, 524332, 0, 0, 589844, 0, 0, 589850, 0, 0, 589858, 0, 0, 589860, 0, 0, 589865, 0, 0, 589868, 0, 0, 655365, 0, 0, 655373, 0, 0, 655383, 0, 0, 655392, 0, 0, 655396, 0, 0, 655401, 0, 0, 655404, 0, 0, 720901, 0, 0, 720909, 0, 0, 720919, 0, 0, 720928, 0, 0, 720932, 0, 0, 720937, 0, 0, 720940, 0, 0, 786437, 0, 0, 786445, 0, 0, 786455, 0, 0, 786464, 0, 0, 786468, 0, 0, 786473, 0, 0, 786476, 0, 0, 851973, 0, 0, 851981, 0, 0, 851991, 0, 0, 852000, 0, 0, 852004, 0, 0, 852009, 0, 0, 852012, 0, 0, 917509, 0, 0, 917517, 0, 0, 917527, 0, 0, 917536, 0, 0, 917540, 0, 0, 917545, 0, 0, 917548, 0, 0, 983045, 0, 0, 983049, 0, 0, 983056, 0, 0, 983057, 0, 0, 983072, 0, 0, 983076, 0, 0, 983081, 0, 0, 983084, 0, 0, 1048581, 0, 0, 1048585, 0, 0, 1048593, 0, 0, 1048601, 0, 0, 1048608, 0, 0, 1048612, 0, 0, 1048617, 0, 0, 1048620, 0, 0, 1114117, 0, 0, 1114121, 0, 0, 1114129, 0, 0, 1114137, 0, 0, 1114144, 0, 0, 1114148, 0, 0, 1114153, 0, 0, 1114156, 0, 0, 1179653, 0, 0, 1179657, 0, 0, 1179665, 0, 0, 1179673, 0, 0, 1179680, 0, 0, 1179684, 0, 0, 1179689, 0, 0, 1179692, 0, 0, 1245189, 0, 0, 1245193, 0, 0, 1245201, 0, 0, 1245209, 0, 0, 1245216, 0, 0, 1245220, 0, 0, 1245225, 0, 0, 1245228, 0, 0, 1310725, 0, 0, 1310729, 0, 0, 1310749, 0, 0, 1310752, 0, 0, 1310755, 0, 0, 1310761, 0, 0, 1310764, 0, 0, 1376261, 0, 0, 1376265, 0, 0, 1376273, 0, 0, 1376285, 0, 0, 1376291, 0, 0, 1376297, 0, 0, 1376300, 0, 0, 1441797, 0, 0, 1441801, 0, 0, 1441809, 0, 0, 1441821, 0, 0, 1441827, 0, 0, 1441833, 0, 0, 1441836, 0, 0, 1507333, 0, 0, 1507337, 0, 0, 1507345, 0, 0, 1507357, 0, 0, 1507363, 0, 0, 1507369, 0, 0, 1507372, 0, 0, 1572869, 0, 0, 1572873, 0, 0, 1572881, 0, 0, 1572893, 0, 0, 1572899, 0, 0, 1572905, 0, 0, 1572908, 0, 0, 1638405, 0, 0, 1638409, 0, 0, 1638417, 0, 0, 1638429, 0, 0, 1638435, 0, 0, 1638441, 0, 0, 1638444, 0, 0, 1703941, 0, 0, 1703945, 0, 0, 1703953, 0, 0, 1703965, 0, 0, 1703971, 0, 0, 1703977, 0, 0, 1703980, 0, 0, 1769477, 0, 0, 1769481, 0, 0, 1769489, 0, 0, 1769507, 0, 0, 1769513, 0, 0, 1769516, 0, 0, 1835013, 0, 0, 1835049, 0, 0, 1835052, 0, 0, 1900585, 0, 0 )
 
 [node name="Scenery" type="Node2D" parent="."]
 
@@ -751,202 +768,202 @@ position = Vector2( 714, 346 )
 [node name="MovingEnemiesSpawnPoints" type="Node" parent="."]
 
 [node name="Position2D" type="Position2D" parent="MovingEnemiesSpawnPoints"]
-position = Vector2( 0, -120 )
+position = Vector2( 0, -46 )
 
 [node name="Position2D43" type="Position2D" parent="MovingEnemiesSpawnPoints"]
-position = Vector2( -128, 0 )
+position = Vector2( -40, 0 )
 
 [node name="Position2D44" type="Position2D" parent="MovingEnemiesSpawnPoints"]
-position = Vector2( -128, 72 )
+position = Vector2( -40, 72 )
 
 [node name="Position2D45" type="Position2D" parent="MovingEnemiesSpawnPoints"]
-position = Vector2( -128, 136 )
+position = Vector2( -40, 136 )
 
 [node name="Position2D46" type="Position2D" parent="MovingEnemiesSpawnPoints"]
-position = Vector2( -128, 200 )
+position = Vector2( -40, 200 )
 
 [node name="Position2D47" type="Position2D" parent="MovingEnemiesSpawnPoints"]
-position = Vector2( -128, 264 )
+position = Vector2( -40, 264 )
 
 [node name="Position2D48" type="Position2D" parent="MovingEnemiesSpawnPoints"]
-position = Vector2( -128, 328 )
+position = Vector2( -40, 328 )
 
 [node name="Position2D49" type="Position2D" parent="MovingEnemiesSpawnPoints"]
-position = Vector2( -128, 400 )
+position = Vector2( -40, 400 )
 
 [node name="Position2D50" type="Position2D" parent="MovingEnemiesSpawnPoints"]
-position = Vector2( -128, 464 )
+position = Vector2( -40, 464 )
 
 [node name="Position2D51" type="Position2D" parent="MovingEnemiesSpawnPoints"]
-position = Vector2( -128, 528 )
+position = Vector2( -40, 528 )
 
 [node name="Position2D52" type="Position2D" parent="MovingEnemiesSpawnPoints"]
-position = Vector2( -128, 592 )
+position = Vector2( -40, 592 )
 
 [node name="Position2D53" type="Position2D" parent="MovingEnemiesSpawnPoints"]
-position = Vector2( -128, 640 )
+position = Vector2( -40, 640 )
 
 [node name="Position2D54" type="Position2D" parent="MovingEnemiesSpawnPoints"]
-position = Vector2( -128, 704 )
+position = Vector2( -40, 704 )
 
 [node name="Position2D55" type="Position2D" parent="MovingEnemiesSpawnPoints"]
-position = Vector2( 1408, 0 )
+position = Vector2( 1332, 0 )
 
 [node name="Position2D56" type="Position2D" parent="MovingEnemiesSpawnPoints"]
-position = Vector2( 1408, 72 )
+position = Vector2( 1332, 72 )
 
 [node name="Position2D57" type="Position2D" parent="MovingEnemiesSpawnPoints"]
-position = Vector2( 1408, 136 )
+position = Vector2( 1332, 136 )
 
 [node name="Position2D58" type="Position2D" parent="MovingEnemiesSpawnPoints"]
-position = Vector2( 1408, 200 )
+position = Vector2( 1332, 200 )
 
 [node name="Position2D59" type="Position2D" parent="MovingEnemiesSpawnPoints"]
-position = Vector2( 1408, 264 )
+position = Vector2( 1332, 264 )
 
 [node name="Position2D60" type="Position2D" parent="MovingEnemiesSpawnPoints"]
-position = Vector2( 1408, 328 )
+position = Vector2( 1332, 328 )
 
 [node name="Position2D61" type="Position2D" parent="MovingEnemiesSpawnPoints"]
-position = Vector2( 1408, 400 )
+position = Vector2( 1332, 400 )
 
 [node name="Position2D62" type="Position2D" parent="MovingEnemiesSpawnPoints"]
-position = Vector2( 1408, 464 )
+position = Vector2( 1332, 464 )
 
 [node name="Position2D63" type="Position2D" parent="MovingEnemiesSpawnPoints"]
-position = Vector2( 1408, 528 )
+position = Vector2( 1332, 528 )
 
 [node name="Position2D64" type="Position2D" parent="MovingEnemiesSpawnPoints"]
-position = Vector2( 1408, 592 )
+position = Vector2( 1332, 592 )
 
 [node name="Position2D65" type="Position2D" parent="MovingEnemiesSpawnPoints"]
-position = Vector2( 1408, 640 )
+position = Vector2( 1332, 640 )
 
 [node name="Position2D66" type="Position2D" parent="MovingEnemiesSpawnPoints"]
-position = Vector2( 1408, 704 )
+position = Vector2( 1332, 704 )
 
 [node name="Position2D2" type="Position2D" parent="MovingEnemiesSpawnPoints"]
-position = Vector2( 64, -120 )
+position = Vector2( 64, -46 )
 
 [node name="Position2D3" type="Position2D" parent="MovingEnemiesSpawnPoints"]
-position = Vector2( 128, -120 )
+position = Vector2( 128, -46 )
 
 [node name="Position2D4" type="Position2D" parent="MovingEnemiesSpawnPoints"]
-position = Vector2( 192, -120 )
+position = Vector2( 192, -46 )
 
 [node name="Position2D5" type="Position2D" parent="MovingEnemiesSpawnPoints"]
-position = Vector2( 256, -120 )
+position = Vector2( 256, -46 )
 
 [node name="Position2D6" type="Position2D" parent="MovingEnemiesSpawnPoints"]
-position = Vector2( 320, -120 )
+position = Vector2( 320, -46 )
 
 [node name="Position2D7" type="Position2D" parent="MovingEnemiesSpawnPoints"]
-position = Vector2( 384, -120 )
+position = Vector2( 384, -46 )
 
 [node name="Position2D8" type="Position2D" parent="MovingEnemiesSpawnPoints"]
-position = Vector2( 448, -120 )
+position = Vector2( 448, -46 )
 
 [node name="Position2D9" type="Position2D" parent="MovingEnemiesSpawnPoints"]
-position = Vector2( 512, -120 )
+position = Vector2( 512, -46 )
 
 [node name="Position2D10" type="Position2D" parent="MovingEnemiesSpawnPoints"]
-position = Vector2( 576, -120 )
+position = Vector2( 576, -46 )
 
 [node name="Position2D11" type="Position2D" parent="MovingEnemiesSpawnPoints"]
-position = Vector2( 640, -120 )
+position = Vector2( 640, -46 )
 
 [node name="Position2D12" type="Position2D" parent="MovingEnemiesSpawnPoints"]
-position = Vector2( 704, -120 )
+position = Vector2( 704, -46 )
 
 [node name="Position2D13" type="Position2D" parent="MovingEnemiesSpawnPoints"]
-position = Vector2( 768, -120 )
+position = Vector2( 768, -46 )
 
 [node name="Position2D14" type="Position2D" parent="MovingEnemiesSpawnPoints"]
-position = Vector2( 832, -120 )
+position = Vector2( 832, -46 )
 
 [node name="Position2D15" type="Position2D" parent="MovingEnemiesSpawnPoints"]
-position = Vector2( 896, -120 )
+position = Vector2( 896, -46 )
 
 [node name="Position2D16" type="Position2D" parent="MovingEnemiesSpawnPoints"]
-position = Vector2( 960, -120 )
+position = Vector2( 960, -46 )
 
 [node name="Position2D17" type="Position2D" parent="MovingEnemiesSpawnPoints"]
-position = Vector2( 1024, -120 )
+position = Vector2( 1024, -46 )
 
 [node name="Position2D18" type="Position2D" parent="MovingEnemiesSpawnPoints"]
-position = Vector2( 1088, -120 )
+position = Vector2( 1088, -46 )
 
 [node name="Position2D19" type="Position2D" parent="MovingEnemiesSpawnPoints"]
-position = Vector2( 1152, -120 )
+position = Vector2( 1152, -46 )
 
 [node name="Position2D20" type="Position2D" parent="MovingEnemiesSpawnPoints"]
-position = Vector2( 1216, -120 )
+position = Vector2( 1216, -46 )
 
 [node name="Position2D21" type="Position2D" parent="MovingEnemiesSpawnPoints"]
-position = Vector2( 1280, -120 )
+position = Vector2( 1280, -46 )
 
 [node name="Position2D22" type="Position2D" parent="MovingEnemiesSpawnPoints"]
-position = Vector2( 0, 832 )
+position = Vector2( 0, 756 )
 
 [node name="Position2D23" type="Position2D" parent="MovingEnemiesSpawnPoints"]
-position = Vector2( 64, 832 )
+position = Vector2( 64, 756 )
 
 [node name="Position2D24" type="Position2D" parent="MovingEnemiesSpawnPoints"]
-position = Vector2( 128, 832 )
+position = Vector2( 128, 756 )
 
 [node name="Position2D25" type="Position2D" parent="MovingEnemiesSpawnPoints"]
-position = Vector2( 192, 832 )
+position = Vector2( 192, 756 )
 
 [node name="Position2D26" type="Position2D" parent="MovingEnemiesSpawnPoints"]
-position = Vector2( 256, 832 )
+position = Vector2( 256, 756 )
 
 [node name="Position2D27" type="Position2D" parent="MovingEnemiesSpawnPoints"]
-position = Vector2( 320, 832 )
+position = Vector2( 320, 756 )
 
 [node name="Position2D28" type="Position2D" parent="MovingEnemiesSpawnPoints"]
-position = Vector2( 384, 832 )
+position = Vector2( 384, 756 )
 
 [node name="Position2D29" type="Position2D" parent="MovingEnemiesSpawnPoints"]
-position = Vector2( 448, 832 )
+position = Vector2( 448, 756 )
 
 [node name="Position2D30" type="Position2D" parent="MovingEnemiesSpawnPoints"]
-position = Vector2( 512, 832 )
+position = Vector2( 512, 756 )
 
 [node name="Position2D31" type="Position2D" parent="MovingEnemiesSpawnPoints"]
-position = Vector2( 576, 832 )
+position = Vector2( 576, 756 )
 
 [node name="Position2D32" type="Position2D" parent="MovingEnemiesSpawnPoints"]
-position = Vector2( 640, 832 )
+position = Vector2( 640, 756 )
 
 [node name="Position2D33" type="Position2D" parent="MovingEnemiesSpawnPoints"]
-position = Vector2( 704, 832 )
+position = Vector2( 704, 756 )
 
 [node name="Position2D34" type="Position2D" parent="MovingEnemiesSpawnPoints"]
-position = Vector2( 768, 832 )
+position = Vector2( 768, 756 )
 
 [node name="Position2D35" type="Position2D" parent="MovingEnemiesSpawnPoints"]
-position = Vector2( 832, 832 )
+position = Vector2( 832, 756 )
 
 [node name="Position2D36" type="Position2D" parent="MovingEnemiesSpawnPoints"]
-position = Vector2( 896, 832 )
+position = Vector2( 896, 756 )
 
 [node name="Position2D37" type="Position2D" parent="MovingEnemiesSpawnPoints"]
-position = Vector2( 960, 832 )
+position = Vector2( 960, 756 )
 
 [node name="Position2D38" type="Position2D" parent="MovingEnemiesSpawnPoints"]
-position = Vector2( 1024, 832 )
+position = Vector2( 1024, 756 )
 
 [node name="Position2D39" type="Position2D" parent="MovingEnemiesSpawnPoints"]
-position = Vector2( 1088, 832 )
+position = Vector2( 1088, 756 )
 
 [node name="Position2D40" type="Position2D" parent="MovingEnemiesSpawnPoints"]
-position = Vector2( 1152, 832 )
+position = Vector2( 1152, 756 )
 
 [node name="Position2D41" type="Position2D" parent="MovingEnemiesSpawnPoints"]
-position = Vector2( 1216, 832 )
+position = Vector2( 1216, 756 )
 
 [node name="Position2D42" type="Position2D" parent="MovingEnemiesSpawnPoints"]
-position = Vector2( 1280, 832 )
+position = Vector2( 1280, 756 )
 
 [node name="GroundColliders" type="Node" parent="."]
 
@@ -1046,5 +1063,22 @@ one_way_collision = true
 
 [node name="Shop" parent="." instance=ExtResource( 8 )]
 
+[node name="StepsTimer" type="Timer" parent="."]
+one_shot = true
+
+[node name="PlayerRespawn" type="Position2D" parent="."]
+position = Vector2( 448, 320 )
+
+[node name="Camera2D" type="Camera2D" parent="."]
+position = Vector2( 640, 360 )
+current = true
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="Camera2D"]
+anims/Shake = SubResource( 14 )
+
 [connection signal="repair" from="RepairStation" to="." method="_on_RepairStation_repair"]
+[connection signal="get_hit" from="Player" to="." method="_on_Player_get_hit"]
+[connection signal="respawned" from="Player" to="." method="_on_Player_respawned"]
+[connection signal="respawning" from="Player" to="." method="_on_Player_respawning"]
 [connection signal="leave_shop" from="Shop" to="." method="_on_Shop_leave_shop"]
+[connection signal="timeout" from="StepsTimer" to="." method="_on_StepsTimer_timeout"]

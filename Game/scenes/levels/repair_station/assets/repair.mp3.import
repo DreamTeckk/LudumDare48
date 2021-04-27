@@ -1,0 +1,15 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+path="res://.import/repair.mp3-14f65749bf1c5e5e0da37aaa89f8b55b.mp3str"
+
+[deps]
+
+source_file="res://scenes/levels/repair_station/assets/repair.mp3"
+dest_files=[ "res://.import/repair.mp3-14f65749bf1c5e5e0da37aaa89f8b55b.mp3str" ]
+
+[params]
+
+loop=true
+loop_offset=0

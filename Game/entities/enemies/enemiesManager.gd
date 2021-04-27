@@ -61,19 +61,16 @@ func spawn_enemies(layer: int, difficulty: int, max_enemies: int) -> void:
 	# The more we go down in layers, the stronger and te more numerous are
 	# the enemies.
 	
-	# Spiders: layer >= 0 (at least 25% of ennemies are spiders); 66% c.t.s
-	# Bats: layer >= 5 (?); 33% c.t.s
+	# Spiders: (at least 25% of ennemies are spiders); 66% c.t.s
+	# Bats: 33% c.t.s
 	# ???
 	
 	if enemies_spawned.size() >= max_enemies:
 		emit_signal("spawn_all_enemies")
 		return
 		
-	var spawnables = [EnemyDict.Spider] 
+	var spawnables = [EnemyDict.Spider, EnemyDict.Bat] 
 	
-	if layer >= 5:
-		spawnables.append(EnemyDict.Bat)
-		
 	var rand_idx = randi() % spawnables[spawnables.size() - 1].cts.max_idx + 1
 	
 	var enemy_to_spawn := ""

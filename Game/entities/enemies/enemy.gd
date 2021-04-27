@@ -67,7 +67,7 @@ func get_punched(punch_velocity: Vector2) -> void:
 	else:
 		_velocity.x = clamp(punch_velocity.x - weight, 0, INF)
 func die() -> void:
-	dead = true
+	pass
 		
 
 func attack() -> void:

@@ -1,18 +1,75 @@
-[gd_scene load_steps=3 format=2]
+[gd_scene load_steps=11 format=2]
 
 [ext_resource path="res://ui/hud/hud.gd" type="Script" id=1]
 [ext_resource path="res://ui/hud/assets/Struct_Healthbar.png" type="Texture" id=2]
+[ext_resource path="res://assets/scenery/coin.png" type="Texture" id=3]
+[ext_resource path="res://assets/fonts/Antonio-Light.ttf" type="DynamicFontData" id=4]
+[ext_resource path="res://assets/themes/main_theme.tres" type="Theme" id=5]
+
+[sub_resource type="DynamicFont" id=1]
+size = 32
+font_data = ExtResource( 4 )
+
+[sub_resource type="Theme" id=2]
+Label/colors/font_color = Color( 1, 1, 1, 1 )
+Label/colors/font_color_shadow = Color( 0, 0, 0, 0 )
+Label/colors/font_outline_modulate = Color( 1, 1, 1, 1 )
+Label/constants/line_spacing = 3
+Label/constants/shadow_as_outline = 0
+Label/constants/shadow_offset_x = 1
+Label/constants/shadow_offset_y = 1
+Label/fonts/font = SubResource( 1 )
+Label/styles/normal = null
+
+[sub_resource type="DynamicFont" id=3]
+size = 100
+font_data = ExtResource( 4 )
+
+[sub_resource type="Theme" id=4]
+default_font = SubResource( 3 )
+
+[sub_resource type="Animation" id=5]
+resource_name = "flicker"
+length = 2.0
+loop = true
+tracks/0/type = "value"
+tracks/0/path = NodePath(".:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 1, 2 ),
+"transitions": PoolRealArray( 1, 1, 1 ),
+"update": 0,
+"values": [ Color( 1, 1, 1, 0 ), Color( 1, 1, 1, 1 ), Color( 1, 1, 1, 0 ) ]
+}
 
 [node name="HUD" type="CanvasLayer"]
 script = ExtResource( 1 )
+
+[node name="Label" type="Label" parent="."]
+anchor_left = 0.5
+anchor_right = 0.5
+margin_left = -168.0
+margin_top = 10.0
+margin_right = 168.0
+margin_bottom = 32.0
+rect_pivot_offset = Vector2( 1, 0 )
+theme = ExtResource( 5 )
+text = "Drill Health"
+align = 1
+__meta__ = {
+"_edit_use_anchors_": false
+}
 
 [node name="StructHealthBar" type="TextureProgress" parent="."]
 anchor_left = 0.5
 anchor_right = 0.5
 margin_left = -168.0
-margin_top = 24.0
+margin_top = 32.0
 margin_right = 168.0
-margin_bottom = 48.0
+margin_bottom = 56.0
 mouse_filter = 2
 value = 100.0
 texture_under = ExtResource( 2 )
@@ -27,11 +84,72 @@ __meta__ = {
 anchor_left = 0.5
 anchor_right = 0.5
 margin_left = -168.0
-margin_top = 64.0
+margin_top = 59.0
 margin_right = 168.0
-margin_bottom = 78.0
+margin_bottom = 81.0
 rect_pivot_offset = Vector2( 1, 0 )
+theme = ExtResource( 5 )
 align = 1
 __meta__ = {
 "_edit_use_anchors_": false
 }
+
+[node name="CoinCounter" type="Control" parent="."]
+margin_right = 40.0
+margin_bottom = 40.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Sprite" type="Sprite" parent="CoinCounter"]
+position = Vector2( 56, 40 )
+scale = Vector2( 2, 2 )
+texture = ExtResource( 3 )
+
+[node name="Label" type="Label" parent="CoinCounter"]
+margin_left = 96.0
+margin_top = 18.0
+margin_right = 174.0
+margin_bottom = 60.0
+theme = SubResource( 2 )
+text = "999999"
+valign = 1
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="LayerCounter" type="Label" parent="."]
+anchor_left = 1.0
+anchor_right = 1.0
+margin_left = -250.0
+margin_top = 18.0
+margin_right = -97.0
+margin_bottom = 60.0
+theme = SubResource( 2 )
+align = 2
+valign = 1
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Respawning" type="Label" parent="."]
+modulate = Color( 1, 1, 1, 0.343717 )
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = -258.0
+margin_top = -65.0
+margin_right = 258.0
+margin_bottom = 65.0
+theme = SubResource( 4 )
+custom_colors/font_color_shadow = Color( 0, 0, 0, 1 )
+custom_constants/shadow_offset_x = 6
+text = "respawning..."
+uppercase = true
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="Respawning"]
+anims/flicker = SubResource( 5 )

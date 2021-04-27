@@ -1,0 +1,15 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+path="res://.import/explosion.mp3-e01209117fb2089930e3359f906508ff.mp3str"
+
+[deps]
+
+source_file="res://entities/enemies/assets/explosion.mp3"
+dest_files=[ "res://.import/explosion.mp3-e01209117fb2089930e3359f906508ff.mp3str" ]
+
+[params]
+
+loop=false
+loop_offset=0
