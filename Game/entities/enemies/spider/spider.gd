@@ -15,12 +15,12 @@ func _physics_process(delta: float) -> void:
 func _ready() -> void:
 	
 	damage = floor(1 * pow(1.3, float(PlayerStats.layers))) 
-	weight = clamp(floor(1 * pow(1.8, float(PlayerStats.layers))) - 1, 0, INF)
+	weight = clamp(floor(1 * pow(2, float(PlayerStats.layers))) - 1, 0, INF)
 	attack_speed = 5.0
 	max_health = 50.0 * PlayerStats.layers
 	aggresive = false
 	health = max_health
-	reward = ceil(3 * pow(1.2, float(PlayerStats.layers))) 
+	reward = ceil(4 * pow(1.2, float(PlayerStats.layers))) 
 	
 	set_physics_process(true)
 	$Sprite.visible = true

@@ -14,7 +14,7 @@ var velocity_level_factor := 1.2
 var caliber_velocity_level_factor := 1.1
 var caliber_size_level_factor :=  0.5
 
-var punch_level_factor := 1.4
+var punch_level_factor := 1.3
 var damage_level_factor :=  1.3
 
 var final_velocity : Vector2

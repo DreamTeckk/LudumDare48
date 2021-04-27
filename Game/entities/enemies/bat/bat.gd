@@ -8,12 +8,12 @@ func _process(delta: float) -> void:
 func _ready() -> void:
 	speed = clamp(ceil(200.0 * pow(1.05, float(PlayerStats.layers))), 200, 1000)
 	damage = clamp(ceil(500.0 * pow(1.05, float(PlayerStats.layers))), 500, INF)
-	weight = clamp(ceil(100.0 * pow(1.3, float(PlayerStats.layers))), 30, INF)
+	weight = clamp(ceil(100.0 * pow(1.5, float(PlayerStats.layers))), 30, INF)
 	attack_speed = 2.0
 	max_health = 5.0 * PlayerStats.layers
 	aggresive = true
 	health = max_health
-	reward = ceil(5 * pow(1.2, float(PlayerStats.layers))) 
+	reward = ceil(6 * pow(1.2, float(PlayerStats.layers))) 
 	set_physics_process(true)
 	setup_attack_timer()
 	$AnimationPlayer.play("Fly")

@@ -77,6 +77,7 @@ func spawn_enemies(layer: int, difficulty: int, max_enemies: int) -> void:
 	# Check if there are no more space for spider 25% min. spawn rate after the iteration
 	if (enemies_spawned.size() - enemies_spawned.count("spider")) / max_enemies > 0.75:
 		spawn_spider()
+		enemies_spawned.append("spider")
 		
 	else: 
 		for enemy in spawnables:

@@ -6,7 +6,7 @@ var UpgradeDict := {
 	"jump": {
 		"level" : 0,
 		"max_level" : 10,
-		"price" : 100.0,
+		"price" : 25.0,
 		"description" : "Give you an extra jump."
 	},
 	"bullet_velocity": {
@@ -18,7 +18,7 @@ var UpgradeDict := {
 	"reload_time": {
 		"level" : 0,
 		"max_level" : 10,
-		"price" : 15.0,
+		"price" : 10.0,
 		"description" : "Shoot faster."
 	},
 	"caliber": {
@@ -42,20 +42,20 @@ var UpgradeDict := {
 	"structur_health": {
 		"level" : 0,
 		"max_level" : 10,
-		"price" : 50.0,
+		"price" : 25.0,
 		"description" : "Increase the Drill's maximum health."
 	},
 	"anti_knockback": {
 		"level" : 0,
 		"max_level" : 10,
-		"price" : 25.0,
+		"price" : 15.0,
 		"description" : "You are more resistant to enemies knockback."
 	},
 	"repaire_station": {
 		"level" : 0,
 		"max_level" : 10,
 		"price" : 8.0,
-		"description" : "The first upgrade give you a repair station that heal the Drill when near from the station. Next upgrade increase the health point gain per second. BE CAREFUL, you can't repair whene shooting."
+		"description" : "The first upgrade give you a repair station that heal the Drill when near from the station. Next upgrade increase the health point gain per second. BE CAREFUL, you can't repair when shooting."
 	}
 }
 
